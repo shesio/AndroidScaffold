@@ -34,7 +34,8 @@ android {
         abortOnError false
         ignoreWarnings true
         disable 'InvalidPackage'            //Some libraries have issues with this.
-        disable 'OldTargetApi'              //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'OldTargetApi'
+        //Lint gives this warning but SDK 20 would be Android L Beta.
         disable 'IconDensities'             //For testing purpose. This is safe to remove.
         disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
     }
@@ -62,16 +63,18 @@ dependencies {
 
     compile project(':domain')
     compile project(':data')
-
+    //Library
     apt presentationDependencies.daggerCompiler
     compile presentationDependencies.dagger
     compile presentationDependencies.butterKnife
+    apt presentationDependencies.butterKnifeCompiler
     compile presentationDependencies.recyclerView
     compile presentationDependencies.v7_appcompat
     compile presentationDependencies.rxJava
     compile presentationDependencies.rxAndroid
     provided presentationDependencies.javaxAnnotation
-
+    provided 'org.projectlombok:lombok:1.12.6'
+    //Test
     androidTestCompile presentationTestDependencies.mockito
     androidTestCompile presentationTestDependencies.dexmaker
     androidTestCompile presentationTestDependencies.dexmakerMockito
