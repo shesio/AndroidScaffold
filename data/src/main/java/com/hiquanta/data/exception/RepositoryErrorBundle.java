@@ -1,6 +1,6 @@
 package com.hiquanta.data.exception;
 
-import com.hiquanta.scaffold.exception.ErrorBundle;
+import com.hiquanta.domain.exception.ErrorBundle;
 
 /**
  * Created by hiquanta on 2016/9/26.

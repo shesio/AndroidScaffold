@@ -1,6 +1,6 @@
 package com.hiquanta.data.executor;
 
-import com.hiquanta.scaffold.executor.ThreadExecutor;
+import com.hiquanta.domain.executor.ThreadExecutor;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

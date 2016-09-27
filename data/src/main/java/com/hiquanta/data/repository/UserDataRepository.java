@@ -3,8 +3,8 @@ package com.hiquanta.data.repository;
 import com.hiquanta.data.entity.mapper.UserEntityDataMapper;
 import com.hiquanta.data.repository.datasource.UserDataStore;
 import com.hiquanta.data.repository.datasource.UserDataStoreFactory;
-import com.hiquanta.scaffold.User;
-import com.hiquanta.scaffold.repository.UserRepository;
+import com.hiquanta.domain.User;
+import com.hiquanta.domain.repository.UserRepository;
 
 import java.util.List;
 

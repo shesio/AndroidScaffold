@@ -5,7 +5,7 @@ import android.content.Context;
 import com.hiquanta.data.cache.serializer.JsonSerializer;
 import com.hiquanta.data.entity.UserEntity;
 import com.hiquanta.data.exception.UserNotFoundException;
-import com.hiquanta.scaffold.executor.ThreadExecutor;
+import com.hiquanta.domain.executor.ThreadExecutor;
 
 import java.io.File;
 

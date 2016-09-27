@@ -1,7 +1,7 @@
 package com.hiquanta.data.entity.mapper;
 
 import com.hiquanta.data.entity.UserEntity;
-import com.hiquanta.scaffold.User;
+import com.hiquanta.domain.User;
 
 import java.util.ArrayList;
 import java.util.Collection;
