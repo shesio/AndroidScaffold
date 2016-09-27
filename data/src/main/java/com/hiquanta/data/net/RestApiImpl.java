@@ -53,7 +53,23 @@ public class RestApiImpl implements RestApi{
 
     @Override
     public Observable<UserEntity> userEntityById(int userId) {
-        return null;
+        return Observable.create(subscriber -> {
+            if (isThereInternetConnection()) {
+                try {
+                    String responseUserDetails = getUserDetailsFromApi(userId);
+                    if (responseUserDetails != null) {
+                        subscriber.onNext(userEntityJsonMapper.transformUserEntity(responseUserDetails));
+                        subscriber.onCompleted();
+                    } else {
+                        subscriber.onError(new NetworkConnectionException());
+                    }
+                } catch (Exception e) {
+                    subscriber.onError(new NetworkConnectionException(e.getCause()));
+                }
+            } else {
+                subscriber.onError(new NetworkConnectionException());
+            }
+        });
     }
     private String getUserEntitiesFromApi() throws MalformedURLException {
         return ApiConnection.createGET(API_URL_GET_USER_LIST).requestSyncCall();

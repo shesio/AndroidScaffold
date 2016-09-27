@@ -4,6 +4,8 @@ import com.hiquanta.scaffold.executor.PostExecutionThread;
 import com.hiquanta.scaffold.executor.ThreadExecutor;
 import com.hiquanta.scaffold.repository.UserRepository;
 
+import javax.inject.Inject;
+
 import rx.Observable;
 
 /**
@@ -12,6 +14,7 @@ import rx.Observable;
 
 public class GetUserList extends UseCase {
     private final UserRepository userRepository;
+    @Inject
     protected GetUserList(UserRepository userRepository,
             ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         super(threadExecutor, postExecutionThread);

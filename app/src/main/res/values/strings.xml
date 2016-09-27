@@ -1,7 +1,18 @@
 <resources>
     <string name="app_name">scaffold</string>
+    <string name="url">http://www.android10.org/</string>
+
+    <string name="activity_title_user_list">Users List</string>
+    <string name="activity_title_user_details">User Details</string>
 
     <string name="btn_text_load_data">Load Sample Data</string>
+    <string name="btn_text_retry">Retry</string>
+
+    <string name="view_text_email">Email:</string>
+    <string name="view_text_followers">Followers:</string>
+    <string name="view_text_description">Description:</string>
+
+    <string name="string_content_description">Non accessible view</string>
     //Exception messages
     <string name="exception_message_generic">应用出错</string>
     <string name="exception_message_no_connection">网络未连接</string>

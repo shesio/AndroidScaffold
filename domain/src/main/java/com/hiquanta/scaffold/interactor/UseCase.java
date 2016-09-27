@@ -1,6 +1,5 @@
 package com.hiquanta.scaffold.interactor;
 
-import com.hiquanta.scaffold.User;
 import com.hiquanta.scaffold.executor.PostExecutionThread;
 import com.hiquanta.scaffold.executor.ThreadExecutor;
 

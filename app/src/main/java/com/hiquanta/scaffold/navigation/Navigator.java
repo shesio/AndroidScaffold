@@ -1,7 +1,11 @@
 package com.hiquanta.scaffold.navigation;
 
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
+
+import com.hiquanta.scaffold.view.activity.UserDetailsActivity;
+import com.hiquanta.scaffold.view.activity.UserListActivity;
 
 import javax.inject.Inject;
 
@@ -17,13 +21,15 @@ public class Navigator {
 
     public void navigateToUserList(Context context) {
         if (context != null) {
-            Toast.makeText(context,"navigateToUserList",Toast.LENGTH_LONG).show();
+            Intent intentToLaunch = UserListActivity.getCallingIntent(context);
+            context.startActivity(intentToLaunch);
         }
     }
 
-    public void navigateToUserDetails(Context context) {
+    public void navigateToUserDetails(Context context, int userId) {
         if (context != null) {
-            Toast.makeText(context,"navigateToUserDetails",Toast.LENGTH_LONG).show();
+            Intent intentToLaunch = UserDetailsActivity.getCallingIntent(context, userId);
+            context.startActivity(intentToLaunch);
         }
     }
 }

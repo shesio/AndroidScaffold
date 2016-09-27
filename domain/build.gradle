@@ -19,7 +19,6 @@ dependencies {
     def domainTestDependencies = rootProject.ext.domainTestDependencies
 
     provided domainDependencies.javaxAnnotation
-    compileOnly "org.projectlombok:lombok:1.12.6"
     compile domainDependencies.javaxInject
     compile domainDependencies.rxJava
 

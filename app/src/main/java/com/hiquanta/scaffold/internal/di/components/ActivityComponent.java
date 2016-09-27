@@ -1,5 +1,7 @@
 package com.hiquanta.scaffold.internal.di.components;
 
+import android.app.Activity;
+
 import com.hiquanta.scaffold.internal.di.modules.ActivityModule;
 
 import dagger.Component;
@@ -10,4 +12,5 @@ import dagger.Component;
 
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
+    Activity activity();
 }

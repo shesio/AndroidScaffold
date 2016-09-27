@@ -2,13 +2,12 @@ package com.hiquanta.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-@Getter@Setter
+
 public class UserEntity {
     @SerializedName("id")
     private int userId;
@@ -31,6 +30,55 @@ public class UserEntity {
     public UserEntity() {
         //empty
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(int followers) {
+        this.followers = followers;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 

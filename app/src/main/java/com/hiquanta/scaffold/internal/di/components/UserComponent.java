@@ -12,7 +12,7 @@ import dagger.Component;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-@Singleton
+
 @Component(dependencies = ApplicationComponent.class,modules = {ActivityModule.class, UserModule.class})
 public interface UserComponent {
     void inject(UserListFragment userListFragment);

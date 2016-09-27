@@ -54,7 +54,6 @@ dependencies {
 
     compile project(':domain')
     provided dataDependencies.javaxAnnotation
-    provided 'org.projectlombok:lombok:1.12.6'
     compile dataDependencies.javaxInject
     compile dataDependencies.okHttp
     compile dataDependencies.gson

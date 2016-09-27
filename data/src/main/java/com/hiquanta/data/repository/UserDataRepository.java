@@ -1,9 +1,14 @@
 package com.hiquanta.data.repository;
 
+import com.hiquanta.data.entity.mapper.UserEntityDataMapper;
+import com.hiquanta.data.repository.datasource.UserDataStore;
+import com.hiquanta.data.repository.datasource.UserDataStoreFactory;
 import com.hiquanta.scaffold.User;
 import com.hiquanta.scaffold.repository.UserRepository;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import rx.Observable;
 
@@ -12,13 +17,24 @@ import rx.Observable;
  */
 
 public class UserDataRepository implements UserRepository {
+
+    private final UserDataStoreFactory userDataStoreFactory;
+    private final UserEntityDataMapper userEntityDataMapper;
+    @Inject
+    public UserDataRepository(UserDataStoreFactory dataStoreFactory,
+                              UserEntityDataMapper userEntityDataMapper) {
+        this.userDataStoreFactory = dataStoreFactory;
+        this.userEntityDataMapper = userEntityDataMapper;
+    }
     @Override
     public Observable<List<User>> users() {
-        return null;
+        final UserDataStore userDataStore = this.userDataStoreFactory.createCloudDataStore();
+        return userDataStore.userEntityList().map(this.userEntityDataMapper::transform);
     }
 
     @Override
     public Observable<User> user(int userId) {
-        return null;
+        final UserDataStore userDataStore = this.userDataStoreFactory.create(userId);
+        return userDataStore.userEntityDetails(userId).map(this.userEntityDataMapper::transform);
     }
 }
