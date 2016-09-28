@@ -1,5 +1,6 @@
 package com.hiquanta.data.exception;
 
+
 import com.hiquanta.domain.exception.ErrorBundle;
 
 /**

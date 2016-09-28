@@ -7,6 +7,7 @@ import com.hiquanta.data.entity.UserEntity;
 import com.hiquanta.data.exception.UserNotFoundException;
 import com.hiquanta.domain.executor.ThreadExecutor;
 
+
 import java.io.File;
 
 import javax.inject.Inject;

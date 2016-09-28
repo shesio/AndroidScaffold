@@ -6,6 +6,7 @@ import com.hiquanta.data.repository.datasource.UserDataStoreFactory;
 import com.hiquanta.domain.User;
 import com.hiquanta.domain.repository.UserRepository;
 
+
 import java.util.List;
 
 import javax.inject.Inject;
