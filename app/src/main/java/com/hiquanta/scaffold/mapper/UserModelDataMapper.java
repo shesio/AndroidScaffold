@@ -2,6 +2,7 @@ package com.hiquanta.scaffold.mapper;
 
 
 import com.hiquanta.domain.User;
+import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.model.UserModel;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import javax.inject.Inject;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@PerActivity
 public class UserModelDataMapper {
     @Inject
     public UserModelDataMapper() {

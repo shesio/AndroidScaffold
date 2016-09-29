@@ -9,11 +9,12 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class UserEntityJsonMapper {
     private final Gson gson;
 

@@ -8,6 +8,7 @@ import com.hiquanta.domain.interactor.DefaultSubscriber;
 import com.hiquanta.domain.interactor.UseCase;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 
+import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.mapper.UserModelDataMapper;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.UserDetailsView;
@@ -18,7 +19,7 @@ import javax.inject.Named;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@PerActivity
 public class UserDetailsPresenter implements Presenter {
     private UserDetailsView viewDetailsView;
 

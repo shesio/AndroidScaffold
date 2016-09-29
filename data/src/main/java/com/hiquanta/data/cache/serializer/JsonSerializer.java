@@ -4,11 +4,12 @@ import com.google.gson.Gson;
 import com.hiquanta.data.entity.UserEntity;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class JsonSerializer {
     private final Gson gson = new Gson();
     @Inject

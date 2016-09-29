@@ -10,11 +10,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class FileManager {
     @Inject
     public FileManager() {

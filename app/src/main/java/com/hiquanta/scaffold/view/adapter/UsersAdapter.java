@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hiquanta.scaffold.R;
+import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.model.UserModel;
 
 import java.util.Collection;
@@ -15,6 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@PerActivity
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
 
 

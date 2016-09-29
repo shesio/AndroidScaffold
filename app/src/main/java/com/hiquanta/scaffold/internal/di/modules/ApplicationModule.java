@@ -12,7 +12,6 @@ import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.UIThread;
 
-
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -31,27 +30,31 @@ public class ApplicationModule {
     }
 
     @Provides
-
+    @Singleton
     Context provideApplicationContext() {
         return this.application;
     }
 
     @Provides
+    @Singleton
     ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor) {
         return jobExecutor;
     }
 
     @Provides
+    @Singleton
     PostExecutionThread providePostExecutionThread(UIThread uiThread) {
         return uiThread;
     }
 
     @Provides
+    @Singleton
     UserCache provideUserCache(UserCacheImpl userCache) {
         return userCache;
     }
 
     @Provides
+    @Singleton
     UserRepository provideUserRepository(UserDataRepository userDataRepository) {
         return userDataRepository;
     }

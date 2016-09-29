@@ -11,13 +11,14 @@ import com.hiquanta.domain.executor.ThreadExecutor;
 import java.io.File;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import rx.Observable;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class UserCacheImpl  implements UserCache{
     private static final String SETTINGS_FILE_NAME = "com.hiquanta.scaffold.SETTINGS";
     private static final String SETTINGS_KEY_LAST_CACHE_UPDATE = "last_cache_update";

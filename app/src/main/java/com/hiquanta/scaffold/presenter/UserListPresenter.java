@@ -8,6 +8,7 @@ import com.hiquanta.domain.interactor.DefaultSubscriber;
 import com.hiquanta.domain.interactor.UseCase;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 
+import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.mapper.UserModelDataMapper;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.UserListView;
@@ -21,7 +22,7 @@ import javax.inject.Named;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@PerActivity
 public class UserListPresenter implements Presenter {
     private UserListView viewListView;
 
@@ -30,7 +31,7 @@ public class UserListPresenter implements Presenter {
 
     @Inject
     public UserListPresenter(
-           // @Named("userList")
+          @Named("userList")
                     UseCase getUserListUserCase,
                              UserModelDataMapper userModelDataMapper) {
         this.getUserListUseCase = getUserListUserCase;

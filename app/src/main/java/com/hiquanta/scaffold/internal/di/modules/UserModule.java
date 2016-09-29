@@ -11,6 +11,7 @@ import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.internal.di.PerActivity;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -28,13 +29,15 @@ public class UserModule {
         this.userId = userId;
     }
     @Provides
-   // @Named("userList")
+    @PerActivity
+    @Named("userList")
     UseCase provideGetUserListUseCase(
             GetUserList getUserList) {
         return getUserList;
     }
     @Provides
-    @Named("userDetails")
+    @PerActivity
+   @Named("userDetails")
     UseCase provideGetUserDetailsUseCase(
             UserRepository userRepository, ThreadExecutor threadExecutor,
             PostExecutionThread postExecutionThread) {

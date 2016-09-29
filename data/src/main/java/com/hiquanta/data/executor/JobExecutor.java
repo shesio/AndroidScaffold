@@ -11,11 +11,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class JobExecutor implements ThreadExecutor {
 
     private static final int INITIAL_POOL_SIZE = 3;

@@ -9,11 +9,12 @@ import com.hiquanta.data.net.RestApi;
 import com.hiquanta.data.net.RestApiImpl;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class UserDataStoreFactory {
     private final Context context;
     private final UserCache userCache;

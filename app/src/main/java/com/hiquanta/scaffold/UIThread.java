@@ -5,6 +5,7 @@ package com.hiquanta.scaffold;
 import com.hiquanta.domain.executor.PostExecutionThread;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;

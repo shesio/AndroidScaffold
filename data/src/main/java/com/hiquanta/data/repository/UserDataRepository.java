@@ -10,13 +10,14 @@ import com.hiquanta.domain.repository.UserRepository;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import rx.Observable;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class UserDataRepository implements UserRepository {
 
     private final UserDataStoreFactory userDataStoreFactory;

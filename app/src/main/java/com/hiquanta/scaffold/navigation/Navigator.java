@@ -3,15 +3,17 @@ package com.hiquanta.scaffold.navigation;
 import android.content.Context;
 import android.content.Intent;
 
+import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.view.activity.UserDetailsActivity;
 import com.hiquanta.scaffold.view.activity.UserListActivity;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
-
+@Singleton
 public class Navigator {
     @Inject
     public Navigator() {

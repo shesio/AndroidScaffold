@@ -17,7 +17,7 @@ public class ActivityModule {
         this.activity = activity;
     }
     @Provides
-
+    @PerActivity
     Activity provideActivity() {
         return this.activity;
     }
