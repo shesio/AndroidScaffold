@@ -55,11 +55,18 @@ dependencies {
     compile project(':domain')
     provided dataDependencies.javaxAnnotation
     compile dataDependencies.javaxInject
-    compile dataDependencies.okHttp
+    //compile dataDependencies.okHttp
+    compile dataDependencies.dagger
+    apt dataDependencies.daggerCompiler
+    compile dataDependencies.okhttp3
+    compile dataDependencies.okhttp3_logging
     compile dataDependencies.gson
     compile dataDependencies.rxJava
     compile dataDependencies.rxAndroid
     compile dataDependencies.androidAnnotations
+    compile dataDependencies.retrofit2
+    compile dataDependencies.retrofit2_converter
+    compile dataDependencies.retrofit2_adapter
 
     testCompile testDependencies.junit
     testCompile testDependencies.assertj

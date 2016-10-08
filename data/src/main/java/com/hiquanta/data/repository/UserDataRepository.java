@@ -1,6 +1,7 @@
 package com.hiquanta.data.repository;
 
 import com.hiquanta.data.entity.mapper.UserEntityDataMapper;
+import com.hiquanta.data.net.RestApi;
 import com.hiquanta.data.repository.datasource.UserDataStore;
 import com.hiquanta.data.repository.datasource.UserDataStoreFactory;
 import com.hiquanta.domain.User;
@@ -22,6 +23,7 @@ public class UserDataRepository implements UserRepository {
 
     private final UserDataStoreFactory userDataStoreFactory;
     private final UserEntityDataMapper userEntityDataMapper;
+
     @Inject
     public UserDataRepository(UserDataStoreFactory dataStoreFactory,
                               UserEntityDataMapper userEntityDataMapper) {

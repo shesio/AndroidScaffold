@@ -14,11 +14,11 @@ import javax.inject.Singleton;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-@Singleton
+
 public class UserEntityJsonMapper {
     private final Gson gson;
 
-    @Inject
+
     public UserEntityJsonMapper() {
         this.gson = new Gson();
     }

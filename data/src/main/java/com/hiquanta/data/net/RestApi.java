@@ -4,20 +4,20 @@ import com.hiquanta.data.entity.UserEntity;
 
 import java.util.List;
 
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
- * Created by hiquanta on 2016/9/26.
+ * Created by hiquanta on 2016/10/8.
  */
 
 public interface RestApi {
-    String API_BASE_URL = "http://www.android10.org/myapi/";
+ //   String API_BASE_URL = "http://www.android10.org/myapi/";
+    String API_BASE_URL = "http://192.168.1.208/myapi/";
 
-    String API_URL_GET_USER_LIST = API_BASE_URL + "users.json";
-
-    String API_URL_GET_USER_DETAILS = API_BASE_URL + "user_";
-
+    @GET("users.json")
     Observable<List<UserEntity>> userEntityList();
-
-    Observable<UserEntity> userEntityById(final int userId);
+    @GET("user_{userId}.json")
+    Observable<UserEntity> userEntityById(final @Path("userId") int userId);
 }
