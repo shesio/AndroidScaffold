@@ -1,5 +1,8 @@
 package com.hiquanta.data.net.component;
 
+import android.content.Context;
+
+import com.hiquanta.data.net.RestApiWrapper;
 import com.hiquanta.data.net.module.RestApiModule;
 import com.hiquanta.data.repository.datasource.CloudUserDataStore;
 
@@ -15,5 +18,5 @@ import dagger.Component;
         modules = RestApiModule.class
 )
 public interface RestApiComponent {
-    void inject(CloudUserDataStore cloudUserDataStore);
+    void inject(RestApiWrapper restApiWrapper);
 }

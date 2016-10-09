@@ -1,15 +1,19 @@
 package com.hiquanta.data.repository.datasource;
 
+import android.content.Context;
+
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.entity.UserEntity;
 
-import com.hiquanta.data.net.RestApi;
+
+import com.hiquanta.data.net.RestApiWrapper;
 
 import com.hiquanta.data.net.component.DaggerRestApiComponent;
 import com.hiquanta.data.net.module.RestApiModule;
 
 
 import java.util.List;
+
 
 import javax.inject.Inject;
 
@@ -21,28 +25,31 @@ import rx.functions.Action1;
  */
 
 public class CloudUserDataStore implements UserDataStore {
-    @Inject
-     RestApi restApi;
-    private final UserCache userCache;
 
+    RestApiWrapper restApiWrapper;
+    private final UserCache userCache;
+    private final Context context;
     private final Action1<UserEntity> saveToCacheAction = userEntity -> {
         if (userEntity != null) {
             CloudUserDataStore.this.userCache.put(userEntity);
         }
     };
 
-    public CloudUserDataStore( UserCache userCache) {
+    public CloudUserDataStore(Context context,UserCache userCache) {
         this.userCache = userCache;
-        DaggerRestApiComponent.builder().restApiModule(new RestApiModule()).build().inject(this);
+        restApiWrapper=new RestApiWrapper(context);
+        this.context=context;
+
     }
 
     @Override
     public Observable<List<UserEntity>> userEntityList() {
-        return this.restApi.userEntityList();
+        return this.restApiWrapper.userEntityList();
     }
 
     @Override
     public Observable<UserEntity> userEntityDetails(int userId) {
-        return this.restApi.userEntityById(userId).doOnNext(saveToCacheAction);
+        return this.restApiWrapper.userEntityById(userId).doOnNext(saveToCacheAction);
     }
+
 }

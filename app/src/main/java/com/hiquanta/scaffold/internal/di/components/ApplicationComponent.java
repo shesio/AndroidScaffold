@@ -18,7 +18,7 @@ import dagger.Component;
  * Created by hiquanta on 2016/9/26.
  */
 @Singleton
-@Component(modules = ApplicationModule.class)
+@Component(modules = {ApplicationModule.class})
 public interface ApplicationComponent {
     void inject(BaseActivity baseActivity);
     Context context();

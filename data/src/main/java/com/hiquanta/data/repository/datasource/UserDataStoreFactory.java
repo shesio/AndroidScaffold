@@ -15,11 +15,13 @@ import javax.inject.Singleton;
 public class UserDataStoreFactory {
     private final Context context;
     private final UserCache userCache;
+
     @Inject
     public UserDataStoreFactory(@NonNull Context context, @NonNull UserCache userCache) {
         this.context = context.getApplicationContext();
         this.userCache = userCache;
     }
+
     public UserDataStore create(int userId) {
         UserDataStore userDataStore;
 
@@ -31,10 +33,11 @@ public class UserDataStoreFactory {
 
         return userDataStore;
     }
-    public UserDataStore createCloudDataStore( ) {
-      //  UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
-       // RestApi restApi = new RestApiImpl(this.context, userEntityJsonMapper);
 
-        return new CloudUserDataStore(this.userCache);
+    public UserDataStore createCloudDataStore() {
+        //  UserEntityJsonMapper userEntityJsonMapper = new UserEntityJsonMapper();
+        // RestApi restApi = new RestApiImpl(this.context, )userEntityJsonMapper;
+
+        return new CloudUserDataStore(context,this.userCache);
     }
 }

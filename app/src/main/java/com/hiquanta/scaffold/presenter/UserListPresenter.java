@@ -1,9 +1,6 @@
 package com.hiquanta.scaffold.presenter;
 
 
-import android.util.Log;
-
-import com.hiquanta.data.exception.NetworkConnectionException;
 import com.hiquanta.domain.User;
 import com.hiquanta.domain.exception.DefaultErrorBundle;
 import com.hiquanta.domain.exception.ErrorBundle;
@@ -109,9 +106,8 @@ public class UserListPresenter implements Presenter {
         }
 
         @Override public void onError(Throwable e) {
-            Log.i("UserListPresenter",""+e.toString());
             UserListPresenter.this.hideViewLoading();
-            UserListPresenter.this.showErrorMessage(new DefaultErrorBundle((new NetworkConnectionException(e))));
+            UserListPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
             UserListPresenter.this.showViewRetry();
         }
 

@@ -15,6 +15,6 @@
     <string name="string_content_description">Non accessible view</string>
     //Exception messages
     <string name="exception_message_generic">应用出错</string>
-    <string name="exception_message_no_connection">网络未连接</string>
+    <string name="exception_message_no_connection">网络错误</string>
     <string name="exception_message_user_not_found">无法找到用户数据,请检查网络连接</string>
 </resources>

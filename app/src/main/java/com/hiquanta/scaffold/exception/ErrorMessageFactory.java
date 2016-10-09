@@ -24,4 +24,9 @@ public class ErrorMessageFactory {
 
         return message;
     }
+//    private void disposeFailureInfo(Throwable e){
+//        if(e.toString().contains("ConnectException")||e.toString().contains("UnknownHostException")){
+//            System.out.println("net");
+//        }
+//    }
 }

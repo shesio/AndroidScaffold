@@ -1,9 +1,12 @@
 package com.hiquanta.data.net.module;
 
 
+import android.content.Context;
+
 import com.hiquanta.data.BuildConfig;
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.net.RestApi;
+import com.hiquanta.data.net.RestApiWrapper;
 import com.hiquanta.data.repository.datasource.CloudUserDataStore;
 
 import java.util.concurrent.TimeUnit;
@@ -23,6 +26,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 @Module
 public class RestApiModule {
+
     @Provides
     @Singleton
     public OkHttpClient provideOkHttpClient() {
@@ -34,14 +38,15 @@ public class RestApiModule {
             builder.addInterceptor(logging);
         }
 
-        builder.connectTimeout(60 * 1000, TimeUnit.MILLISECONDS)
+        builder.connectTimeout(15 * 1000, TimeUnit.MILLISECONDS)
                 .readTimeout(60 * 1000, TimeUnit.MILLISECONDS);
 
         return builder.build();
     }
+
     @Provides
     @Singleton
-    public Retrofit provideRestAdapter( OkHttpClient okHttpClient) {
+    public Retrofit provideRestAdapter(OkHttpClient okHttpClient) {
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.client(okHttpClient)
                 .baseUrl(RestApi.API_BASE_URL)
@@ -49,19 +54,27 @@ public class RestApiModule {
                 .addConverterFactory(GsonConverterFactory.create());
         return builder.build();
     }
+
     @Provides
     @Singleton
     public RestApi provideRestApi(Retrofit restAdapter) {
         return restAdapter.create(RestApi.class);
     }
-//    @Provides
+
+    //    @Provides
 //    @Singleton
 //    public UserManager provideUserManager(RestApi restApi) {
 //        return new UserManager(restApi);
 //    }
-   @Provides
-    @Singleton
-    public CloudUserDataStore  provideCloudUserDataStore(UserCache userCache) {
-        return new CloudUserDataStore(userCache);
-    }
+//    @Provides
+//    @Singleton
+//    public RestApiWrapper provideRestApiWrapper(RestApi restApi) {
+//        return new RestApiWrapper(restApi);
+//    }
+
+//    @Provides
+//    @Singleton
+//    public CloudUserDataStore provideCloudUserDataStore(UserCache userCache) {
+//        return new CloudUserDataStore(userCache);
+//    }
 }

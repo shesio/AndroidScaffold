@@ -2,11 +2,12 @@ package com.hiquanta.domain.interactor;
 
 import rx.Subscriber;
 
+
 /**
  * Created by hiquanta on 2016/9/26.
  */
 
-public class DefaultSubscriber<T> extends Subscriber<T> {
+public abstract class DefaultSubscriber<T> extends Subscriber<T> {
     @Override
     public void onCompleted() {
 
@@ -21,4 +22,8 @@ public class DefaultSubscriber<T> extends Subscriber<T> {
     public void onNext(T t) {
 
     }
+//    /**
+//     * 错误回调
+//     */
+//    protected abstract void onError(A ex);
 }
