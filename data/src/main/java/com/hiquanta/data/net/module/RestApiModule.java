@@ -1,13 +1,8 @@
 package com.hiquanta.data.net.module;
 
 
-import android.content.Context;
-
 import com.hiquanta.data.BuildConfig;
-import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.net.RestApi;
-import com.hiquanta.data.net.RestApiWrapper;
-import com.hiquanta.data.repository.datasource.CloudUserDataStore;
 
 import java.util.concurrent.TimeUnit;
 

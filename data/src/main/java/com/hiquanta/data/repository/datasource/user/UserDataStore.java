@@ -1,4 +1,4 @@
-package com.hiquanta.data.repository.datasource;
+package com.hiquanta.data.repository.datasource.user;
 
 import com.hiquanta.data.entity.UserEntity;
 

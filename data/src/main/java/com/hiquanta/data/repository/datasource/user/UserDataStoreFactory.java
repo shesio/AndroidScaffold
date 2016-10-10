@@ -1,9 +1,12 @@
-package com.hiquanta.data.repository.datasource;
+package com.hiquanta.data.repository.datasource.user;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.hiquanta.data.cache.UserCache;
+import com.hiquanta.data.repository.datasource.user.CloudUserDataStore;
+import com.hiquanta.data.repository.datasource.user.DiskUserDataStore;
+import com.hiquanta.data.repository.datasource.user.UserDataStore;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

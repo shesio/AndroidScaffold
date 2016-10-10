@@ -1,27 +1,40 @@
-package com.hiquanta.domain;
+package com.hiquanta.data.entity;
 
-
-
+import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by hiquanta on 2016/9/26.
+ * Created by hiquanta on 2016/10/10.
  */
 
-public class User {
-    private final int userId;
+public class LoginInfoEntity {
+    @SerializedName("id")
+    private int userId;
 
-    public User(int userId) {
-        this.userId = userId;
-    }
-
+    @SerializedName("cover_url")
     private String coverUrl;
-    private String fullName;
-    private String email;
+
+    @SerializedName("full_name")
+    private String fullname;
+
+    @SerializedName("description")
     private String description;
+
+    @SerializedName("followers")
     private int followers;
+
+    @SerializedName("email")
+    private String email;
+
+    public LoginInfoEntity() {
+        //empty
+    }
 
     public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getCoverUrl() {
@@ -32,20 +45,12 @@ public class User {
         this.coverUrl = coverUrl;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getDescription() {
@@ -64,14 +69,21 @@ public class User {
         this.followers = followers;
     }
 
-    @Override
-    public String toString() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append("***** User Details *****\n");
+        stringBuilder.append("***** User Entity Details *****\n");
         stringBuilder.append("id=" + this.userId + "\n");
         stringBuilder.append("cover url=" + this.coverUrl + "\n");
-        stringBuilder.append("fullname=" + this.fullName + "\n");
+        stringBuilder.append("fullname=" + this.fullname + "\n");
         stringBuilder.append("email=" + this.email + "\n");
         stringBuilder.append("description=" + this.description + "\n");
         stringBuilder.append("followers=" + this.followers + "\n");

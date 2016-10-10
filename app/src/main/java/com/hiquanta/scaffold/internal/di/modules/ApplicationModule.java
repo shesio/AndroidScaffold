@@ -5,9 +5,11 @@ import android.content.Context;
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.cache.UserCacheImpl;
 import com.hiquanta.data.executor.JobExecutor;
+import com.hiquanta.data.repository.LoginInfoDataRepository;
 import com.hiquanta.data.repository.UserDataRepository;
 import com.hiquanta.domain.executor.PostExecutionThread;
 import com.hiquanta.domain.executor.ThreadExecutor;
+import com.hiquanta.domain.repository.LoginInfoRepository;
 import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.UIThread;
@@ -57,5 +59,10 @@ public class ApplicationModule {
     @Singleton
     UserRepository provideUserRepository(UserDataRepository userDataRepository) {
         return userDataRepository;
+    }
+    @Provides
+    @Singleton
+    LoginInfoRepository provideLoginInfoRepository(LoginInfoDataRepository loginInfoDataRepository) {
+        return loginInfoDataRepository;
     }
 }

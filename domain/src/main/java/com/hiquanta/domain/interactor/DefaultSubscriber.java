@@ -22,8 +22,5 @@ public abstract class DefaultSubscriber<T> extends Subscriber<T> {
     public void onNext(T t) {
 
     }
-//    /**
-//     * 错误回调
-//     */
-//    protected abstract void onError(A ex);
+
 }

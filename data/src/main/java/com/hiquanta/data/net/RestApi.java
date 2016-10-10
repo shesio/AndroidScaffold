@@ -1,5 +1,6 @@
 package com.hiquanta.data.net;
 
+import com.hiquanta.data.entity.LoginInfoEntity;
 import com.hiquanta.data.entity.UserEntity;
 
 import java.util.List;
@@ -20,4 +21,6 @@ public interface RestApi {
     Observable<List<UserEntity>> userEntityList();
     @GET("user_{userId}.json")
     Observable<UserEntity> userEntityById(final @Path("userId") int userId);
+  @GET("user_{userId}.json")
+  Observable<LoginInfoEntity> doLogin(final @Path("userId") int userId);
 }

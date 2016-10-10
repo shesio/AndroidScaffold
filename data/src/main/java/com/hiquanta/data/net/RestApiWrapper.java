@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.hiquanta.data.entity.LoginInfoEntity;
 import com.hiquanta.data.entity.UserEntity;
 import com.hiquanta.data.exception.NetworkConnectionException;
 import com.hiquanta.data.net.component.DaggerRestApiComponent;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import retrofit2.http.Path;
 import rx.Observable;
 import rx.functions.Action0;
 import rx.functions.Action1;
@@ -70,7 +72,9 @@ public class RestApiWrapper  {
     public Observable<UserEntity> userEntityById(int userId) {
         return restApi.userEntityById(userId);
     }
-
+    public  Observable<LoginInfoEntity> doLogin(int userId){
+        return restApi.doLogin(userId);
+    }
     private boolean isThereInternetConnection() {
         boolean isConnected;
 

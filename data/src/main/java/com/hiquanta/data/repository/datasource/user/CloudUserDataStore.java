@@ -1,4 +1,4 @@
-package com.hiquanta.data.repository.datasource;
+package com.hiquanta.data.repository.datasource.user;
 
 import android.content.Context;
 
@@ -8,14 +8,9 @@ import com.hiquanta.data.entity.UserEntity;
 
 import com.hiquanta.data.net.RestApiWrapper;
 
-import com.hiquanta.data.net.component.DaggerRestApiComponent;
-import com.hiquanta.data.net.module.RestApiModule;
-
 
 import java.util.List;
 
-
-import javax.inject.Inject;
 
 import rx.Observable;
 import rx.functions.Action1;

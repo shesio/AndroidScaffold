@@ -13,7 +13,7 @@ import javax.inject.Singleton;
 /**
  * Created by hiquanta on 2016/9/26.
  */
-@Singleton
+
 public class Navigator {
     @Inject
     public Navigator() {
