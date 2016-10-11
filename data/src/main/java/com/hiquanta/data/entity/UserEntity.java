@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class UserEntity {
+
     @SerializedName("id")
     private int userId;
 
@@ -26,6 +27,8 @@ public class UserEntity {
 
     @SerializedName("email")
     private String email;
+
+
 
     public UserEntity() {
         //empty

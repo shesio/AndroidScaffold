@@ -119,13 +119,13 @@ public class UserListFragment extends BaseFragment implements UserListView {
     @Override
     public void showLoading() {
         this.rl_progress.setVisibility(View.VISIBLE);
-       // this.getActivity().setProgressBarIndeterminateVisibility(true);
+
     }
 
     @Override
     public void hideLoading() {
         this.rl_progress.setVisibility(View.GONE);
-      //  this.getActivity().setProgressBarIndeterminateVisibility(false);
+
     }
 
     @Override

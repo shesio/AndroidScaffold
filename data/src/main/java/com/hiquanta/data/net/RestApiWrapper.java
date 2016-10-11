@@ -25,13 +25,12 @@ import rx.functions.Action1;
  * Created by hiquanta on 2016/10/9.
  */
 
-public class RestApiWrapper  {
+public class RestApiWrapper {
     @Inject
     RestApi restApi;
     private final Context context;
 
     public RestApiWrapper(Context context) {
-        // this.restApi=restApi;
         this.context = context;
         initComponent();
     }
@@ -45,22 +44,10 @@ public class RestApiWrapper  {
         return Observable.create(subscriber -> {
             if (isThereInternetConnection()) {
                 restApi.userEntityList()
-                        .subscribe(new Action1<List<UserEntity>>() {
-                            @Override
-                            public void call(List<UserEntity> userEntities) {
-                                subscriber.onNext(userEntities);
-                            }
-                        }, new Action1<Throwable>() {
-                            @Override
-                            public void call(Throwable throwable) {
-                                subscriber.onError(new NetworkConnectionException(throwable.getCause()));
-                            }
-                        }, new Action0() {
-                            @Override
-                            public void call() {
-                                subscriber.onCompleted();
-                            }
-                        });
+                        .subscribe(userEntities -> subscriber.onNext(userEntities)
+                                , throwable -> subscriber.onError(new NetworkConnectionException(throwable.getCause()))
+                                , () -> subscriber.onCompleted()
+                        );
 
             } else {
                 subscriber.onError(new NetworkConnectionException());
@@ -72,35 +59,24 @@ public class RestApiWrapper  {
     public Observable<UserEntity> userEntityById(int userId) {
         return restApi.userEntityById(userId);
     }
-    public  Observable<LoginInfoEntity> doLogin(int userId){
+
+    public Observable<LoginInfoEntity> doLogin(int userId) {
         return Observable.create(subscriber -> {
             if (isThereInternetConnection()) {
                 restApi.doLogin(userId)
-                        .subscribe(new Action1<LoginInfoEntity>() {
-                            @Override
-                            public void call(LoginInfoEntity userEntities) {
-                                subscriber.onNext(userEntities);
-                            }
-                        }, new Action1<Throwable>() {
-                            @Override
-                            public void call(Throwable throwable) {
-                                subscriber.onError(new NetworkConnectionException(throwable.getCause()));
-                            }
-                        }, new Action0() {
-                            @Override
-                            public void call() {
-                                subscriber.onCompleted();
-                            }
-                        });
+                        .subscribe(userEntities -> subscriber.onNext(userEntities)
+                                , throwable -> subscriber.onError(new NetworkConnectionException(throwable.getCause()))
+                                , () -> subscriber.onCompleted()
+                        );
 
             } else {
                 subscriber.onError(new NetworkConnectionException());
             }
         });
     }
+
     private boolean isThereInternetConnection() {
         boolean isConnected;
-
         ConnectivityManager connectivityManager =
                 (ConnectivityManager) this.context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
