@@ -19,18 +19,16 @@ import dagger.Provides;
  */
 @Module
 public class LoginModule {
-    private int userId = -1;
 
-    public LoginModule() {}
-
-    public LoginModule(int userId) {
-        this.userId = userId;
+    public LoginModule() {
     }
+
+
     @Provides
     @PerActivity
     UseCase provideGetLoginInfoUseCase(
             LoginInfoRepository loginInfoRepository, ThreadExecutor threadExecutor,
             PostExecutionThread postExecutionThread) {
-        return new GetLoginInfo(userId,loginInfoRepository,threadExecutor,postExecutionThread);
+        return new GetLoginInfo( loginInfoRepository, threadExecutor, postExecutionThread);
     }
 }

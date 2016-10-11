@@ -73,7 +73,30 @@ public class RestApiWrapper  {
         return restApi.userEntityById(userId);
     }
     public  Observable<LoginInfoEntity> doLogin(int userId){
-        return restApi.doLogin(userId);
+        return Observable.create(subscriber -> {
+            if (isThereInternetConnection()) {
+                restApi.doLogin(userId)
+                        .subscribe(new Action1<LoginInfoEntity>() {
+                            @Override
+                            public void call(LoginInfoEntity userEntities) {
+                                subscriber.onNext(userEntities);
+                            }
+                        }, new Action1<Throwable>() {
+                            @Override
+                            public void call(Throwable throwable) {
+                                subscriber.onError(new NetworkConnectionException(throwable.getCause()));
+                            }
+                        }, new Action0() {
+                            @Override
+                            public void call() {
+                                subscriber.onCompleted();
+                            }
+                        });
+
+            } else {
+                subscriber.onError(new NetworkConnectionException());
+            }
+        });
     }
     private boolean isThereInternetConnection() {
         boolean isConnected;

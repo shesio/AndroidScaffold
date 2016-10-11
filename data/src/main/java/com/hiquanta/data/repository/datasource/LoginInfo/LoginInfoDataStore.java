@@ -11,6 +11,6 @@ import rx.Observable;
  */
 
 public interface LoginInfoDataStore {
-   // Observable<LoginInfoEntity> LoginInfoEntityDetails(final String passWord,String userName);
-    Observable<LoginInfoEntity> LoginInfoEntityDetails(final int userId);
+    Observable<LoginInfoEntity> LoginInfoEntityDetails(final String passWord,String userName);
+    //Observable<LoginInfoEntity> LoginInfoEntityDetails(final int userId);
 }

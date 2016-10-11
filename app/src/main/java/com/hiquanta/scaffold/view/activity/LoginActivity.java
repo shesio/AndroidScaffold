@@ -35,24 +35,21 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
     EditText passWord;
     @BindView(R.id.rl_progress)
     FrameLayout rl_progress;
-    private int userId;
     private LoginComponent loginComponent;
 
     @Inject
     LoginPresenter loginPresenter;
-
     public static Intent getCallingIntent(Context context) {
         Intent callingIntent = new Intent(context, MainActivity.class);
 
         return callingIntent;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        this.initializeInjector();
+     this.initializeInjector();
         this.loginPresenter.setView(this);
     }
 
@@ -60,15 +57,14 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
         this.loginComponent = DaggerLoginComponent.builder()
                 .applicationComponent(getApplicationComponent())
                 .activityModule(getActivityModule())
-                .loginModule(new LoginModule(this.userId))
+                .loginModule(new LoginModule())
                 .build();
         this.loginComponent.inject(this);
     }
 
     @OnClick(R.id.login)
     void Login() {
-    //ToastUtil.showLong("登录");
-
+        loginPresenter.onLoginClick(userName.getText().toString(),passWord.getText().toString());
     }
 
     @Override
@@ -93,24 +89,12 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
 
     @Override
     public Context context() {
-        return null;
+        return this.getApplicationContext();
     }
 
-
-
-
-    @Override
-    public void setUsernameError() {
-
-    }
-
-    @Override
-    public void setPasswordError() {
-
-    }
 
     @Override
     public void navigateToHome() {
-
+      navigator.navigateToHome(this);
     }
 }

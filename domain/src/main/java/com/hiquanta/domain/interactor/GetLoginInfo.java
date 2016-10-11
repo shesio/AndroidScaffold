@@ -9,27 +9,38 @@ import javax.inject.Inject;
 
 import rx.Observable;
 
+
 /**
  * Created by hiquanta on 2016/10/10.
  */
 
 public class GetLoginInfo extends UseCase  {
 
-    private final int userId;
+    private String userName;
+    private String passWord;
     private final LoginInfoRepository loginInfoRepository;
 
 
-
     @Inject
-    public GetLoginInfo(int userId, LoginInfoRepository loginInfoRepository,
-                          ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
+    public GetLoginInfo(LoginInfoRepository loginInfoRepository,
+                        ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread) {
         super(threadExecutor, postExecutionThread);
-        this.userId = userId;
+
         this.loginInfoRepository = loginInfoRepository;
     }
 
+        public void setArgs(String userName, String passWord) {
+        this.userName = userName;
+        this.passWord = passWord;
+    }
+
+
     @Override
     protected Observable buildUseCaseObservable() {
-        return this.loginInfoRepository.LoginInfo(this.userId);
+        return this.loginInfoRepository.LoginInfo(userName, passWord);
     }
+
+
+
+
 }

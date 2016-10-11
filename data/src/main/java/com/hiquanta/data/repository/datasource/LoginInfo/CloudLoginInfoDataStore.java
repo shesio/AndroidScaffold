@@ -1,6 +1,7 @@
 package com.hiquanta.data.repository.datasource.LoginInfo;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.entity.LoginInfoEntity;
@@ -29,8 +30,11 @@ public class CloudLoginInfoDataStore implements LoginInfoDataStore {
         this.context=context;
 
     }
+
+
     @Override
-    public Observable<LoginInfoEntity> LoginInfoEntityDetails(int userId) {
-        return restApiWrapper.doLogin(userId);
+    public Observable<LoginInfoEntity> LoginInfoEntityDetails(String passWord, String userName) {
+        Log.i("CloudLoginInfoDataStore",passWord+":"+userName);
+        return restApiWrapper.doLogin(2);
     }
 }

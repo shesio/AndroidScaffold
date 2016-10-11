@@ -1,16 +1,17 @@
 package com.hiquanta.scaffold.presenter;
 
+import com.hiquanta.data.repository.datasource.LoginInfo.LoginInfoDataStore;
 import com.hiquanta.domain.LoginInfo;
 import com.hiquanta.domain.User;
 import com.hiquanta.domain.exception.DefaultErrorBundle;
 import com.hiquanta.domain.exception.ErrorBundle;
 import com.hiquanta.domain.interactor.DefaultSubscriber;
+import com.hiquanta.domain.interactor.GetLoginInfo;
 import com.hiquanta.domain.interactor.UseCase;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 import com.hiquanta.scaffold.internal.di.PerActivity;
+import com.hiquanta.scaffold.util.Validator;
 import com.hiquanta.scaffold.view.LoginView;
-
-
 
 
 import javax.inject.Inject;
@@ -26,14 +27,15 @@ public class LoginPresenter implements Presenter {
     private final UseCase getLoginInfoUseCase;
 
     @Inject
-    public LoginPresenter( UseCase getLoginInfoUseCase) {
+    public LoginPresenter(UseCase getLoginInfoUseCase) {
         this.getLoginInfoUseCase = getLoginInfoUseCase;
 
     }
 
-    public void setView( LoginView view) {
+    public void setView(LoginView view) {
         this.loginView = view;
     }
+
     @Override
     public void resume() {
 
@@ -48,12 +50,14 @@ public class LoginPresenter implements Presenter {
     public void destroy() {
 
     }
-    public void onLoginClick() {
-        this.doLogin();
+
+    public void onLoginClick(String userName, String passWord) {
+        this.doLogin(userName, passWord);
     }
-    private void doLogin() {
+
+    private void doLogin(String userName, String passWord) {
         this.showViewLoading();
-        this.onLoginClick();
+        validateCredentials(userName, passWord);
     }
 
     private void showViewLoading() {
@@ -63,25 +67,45 @@ public class LoginPresenter implements Presenter {
     private void hideViewLoading() {
         this.loginView.hideLoading();
     }
+
     private void showErrorMessage(ErrorBundle errorBundle) {
         String errorMessage = ErrorMessageFactory.create(this.loginView.context(),
                 errorBundle.getException());
         this.loginView.showError(errorMessage);
     }
-    private final class LoginInfoSubscriber extends DefaultSubscriber<LoginInfo> {
 
-        @Override public void onCompleted() {
-            LoginPresenter.this.hideViewLoading();
-        }
-
-        @Override public void onError(Throwable e) {
-            LoginPresenter.this.hideViewLoading();
-            LoginPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
-
-        }
-
-        @Override public void onNext(LoginInfo loginInfo) {
-
+    private void validateCredentials(String username, String password) {
+        if (Validator.vvalidateCredentials(username, password)) {
+            ((GetLoginInfo)(this.getLoginInfoUseCase)).setArgs(username,password);
+            this.getLoginInfoUseCase.execute(new LoginInfoSubscriber());
+        } else {
+            hideViewLoading();
+            loginView.showError("Error");
         }
     }
+
+    private final class LoginInfoSubscriber extends DefaultSubscriber<LoginInfo> {
+
+
+        @Override
+        public void onCompleted() {
+            LoginPresenter.this.hideViewLoading();
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            LoginPresenter.this.hideViewLoading();
+            LoginPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
+            //loginView.showError(e.toString());
+
+        }
+
+        @Override
+        public void onNext(LoginInfo loginInfo) {
+
+            loginView.navigateToHome();
+        }
+    }
+
+
 }

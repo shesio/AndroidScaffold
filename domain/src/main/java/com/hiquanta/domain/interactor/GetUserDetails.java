@@ -7,12 +7,13 @@ import com.hiquanta.domain.repository.UserRepository;
 import javax.inject.Inject;
 
 import rx.Observable;
+import rx.Subscriber;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
 
-public class GetUserDetails extends UseCase {
+public class GetUserDetails extends UseCase{
     private final int userId;
     private final UserRepository userRepository;
     @Inject
@@ -27,4 +28,7 @@ public class GetUserDetails extends UseCase {
     protected Observable buildUseCaseObservable() {
         return this.userRepository.user(this.userId);
     }
+
+
+
 }

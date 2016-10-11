@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.hiquanta.scaffold.internal.di.PerActivity;
+import com.hiquanta.scaffold.view.activity.LoginActivity;
+import com.hiquanta.scaffold.view.activity.MainActivity;
 import com.hiquanta.scaffold.view.activity.UserDetailsActivity;
 import com.hiquanta.scaffold.view.activity.UserListActivity;
 
@@ -30,6 +32,12 @@ public class Navigator {
     public void navigateToUserDetails(Context context, int userId) {
         if (context != null) {
             Intent intentToLaunch = UserDetailsActivity.getCallingIntent(context, userId);
+            context.startActivity(intentToLaunch);
+        }
+    }
+    public void navigateToHome(Context context) {
+        if (context != null) {
+            Intent intentToLaunch = LoginActivity.getCallingIntent(context);
             context.startActivity(intentToLaunch);
         }
     }

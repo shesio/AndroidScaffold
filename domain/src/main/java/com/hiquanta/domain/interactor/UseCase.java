@@ -13,10 +13,11 @@ import rx.subscriptions.Subscriptions;
  * Created by hiquanta on 2016/9/26.
  */
 
-public abstract class UseCase {
+public abstract class UseCase{
     private final ThreadExecutor threadExecutor;
     private final PostExecutionThread postExecutionThread;
     private Subscription subscription = Subscriptions.empty();
+
     protected UseCase(ThreadExecutor threadExecutor,
                       PostExecutionThread postExecutionThread) {
         this.threadExecutor = threadExecutor;

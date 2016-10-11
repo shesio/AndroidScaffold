@@ -25,7 +25,7 @@ public class LoginInfoDataStoreFactory {
         //this.userCache = userCache;
     }
 
-    public LoginInfoDataStore create(int userId) {
+    public LoginInfoDataStore create() {
         LoginInfoDataStore loginInfoDataStore;
 
 //        if (!this.userCache.isExpired() && this.userCache.isCached(userId)) {

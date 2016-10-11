@@ -1,5 +1,7 @@
 package com.hiquanta.data.repository;
 
+import android.util.Log;
+
 import com.hiquanta.data.entity.mapper.LoginInfoEntityDataMapper;
 import com.hiquanta.data.repository.datasource.LoginInfo.LoginInfoDataStore;
 import com.hiquanta.data.repository.datasource.LoginInfo.LoginInfoDataStoreFactory;
@@ -25,9 +27,11 @@ public class LoginInfoDataRepository implements LoginInfoRepository {
         this.loginInfoDataStoreFactory = loginInfoDataStoreFactory;
         this.loginInfoEntityDataMapper = loginInfoEntityDataMapper;
     }
+
     @Override
-    public Observable<LoginInfo> LoginInfo(int userId) {
-        final LoginInfoDataStore loginInfoDataStore = this.loginInfoDataStoreFactory.create(userId);
-        return loginInfoDataStore.LoginInfoEntityDetails(userId).map(this.loginInfoEntityDataMapper::transform);
+    public Observable<LoginInfo> LoginInfo(String userName, String passWord) {
+        Log.i("LoginInfoDataRepository",userName+":"+passWord);
+        final LoginInfoDataStore loginInfoDataStore = this.loginInfoDataStoreFactory.create();
+        return loginInfoDataStore.LoginInfoEntityDetails(userName, passWord).map(this.loginInfoEntityDataMapper::transform);
     }
 }

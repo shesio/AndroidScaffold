@@ -21,7 +21,7 @@ public class LoginInfoEntityDataMapper {
     public LoginInfoEntityDataMapper() {}
     public LoginInfo transform(LoginInfoEntity loginInfoEntity) {
         LoginInfo loginInfo = null;
-        if (loginInfo != null) {
+        if (loginInfoEntity != null) {
             loginInfo = new LoginInfo(loginInfoEntity.getUserId());
             loginInfo.setCoverUrl(loginInfoEntity.getCoverUrl());
             loginInfo.setFullName(loginInfoEntity.getFullname());
