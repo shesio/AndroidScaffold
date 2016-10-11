@@ -39,18 +39,38 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
 
     @Inject
     LoginPresenter loginPresenter;
+
     public static Intent getCallingIntent(Context context) {
         Intent callingIntent = new Intent(context, MainActivity.class);
 
         return callingIntent;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-     this.initializeInjector();
+        this.initializeInjector();
         this.loginPresenter.setView(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loginPresenter.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        loginPresenter.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        loginPresenter.destroy();
     }
 
     private void initializeInjector() {
@@ -64,7 +84,7 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
 
     @OnClick(R.id.login)
     void Login() {
-        loginPresenter.onLoginClick(userName.getText().toString(),passWord.getText().toString());
+        loginPresenter.onLoginClick(userName.getText().toString(), passWord.getText().toString());
     }
 
     @Override
@@ -95,6 +115,6 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
 
     @Override
     public void navigateToHome() {
-      navigator.navigateToHome(this);
+        navigator.navigateToHome(this);
     }
 }

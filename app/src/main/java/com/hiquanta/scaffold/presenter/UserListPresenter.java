@@ -31,16 +31,17 @@ public class UserListPresenter implements Presenter {
 
     @Inject
     public UserListPresenter(
-          @Named("userList")
+            @Named("userList")
                     UseCase getUserListUserCase,
-                             UserModelDataMapper userModelDataMapper) {
+            UserModelDataMapper userModelDataMapper) {
         this.getUserListUseCase = getUserListUserCase;
         this.userModelDataMapper = userModelDataMapper;
     }
 
-    public void setView( UserListView view) {
+    public void setView(UserListView view) {
         this.viewListView = view;
     }
+
     @Override
     public void resume() {
 
@@ -56,14 +57,17 @@ public class UserListPresenter implements Presenter {
         this.getUserListUseCase.unsubscribe();
         this.viewListView = null;
     }
+
     public void initialize() {
         this.loadUserList();
     }
+
     private void loadUserList() {
         this.hideViewRetry();
         this.showViewLoading();
         this.getUserList();
     }
+
     public void onUserClicked(UserModel userModel) {
         this.viewListView.viewUser(userModel);
     }
@@ -99,19 +103,23 @@ public class UserListPresenter implements Presenter {
     private void getUserList() {
         this.getUserListUseCase.execute(new UserListSubscriber());
     }
+
     private final class UserListSubscriber extends DefaultSubscriber<List<User>> {
 
-        @Override public void onCompleted() {
+        @Override
+        public void onCompleted() {
             UserListPresenter.this.hideViewLoading();
         }
 
-        @Override public void onError(Throwable e) {
+        @Override
+        public void onError(Throwable e) {
             UserListPresenter.this.hideViewLoading();
             UserListPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
             UserListPresenter.this.showViewRetry();
         }
 
-        @Override public void onNext(List<User> users) {
+        @Override
+        public void onNext(List<User> users) {
             UserListPresenter.this.showUsersCollectionInView(users);
         }
     }
