@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hiquanta.scaffold.R;
+
 import com.hiquanta.scaffold.internal.di.components.UserComponent;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.presenter.UserDetailsPresenter;

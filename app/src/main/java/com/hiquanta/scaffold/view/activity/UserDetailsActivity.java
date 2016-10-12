@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.R;
 import com.hiquanta.scaffold.internal.di.HasComponent;
-import com.hiquanta.scaffold.internal.di.components.DaggerUserComponent;
 import com.hiquanta.scaffold.internal.di.components.UserComponent;
 import com.hiquanta.scaffold.internal.di.modules.UserModule;
 import com.hiquanta.scaffold.view.fragment.UserDetailsFragment;
@@ -54,11 +54,12 @@ public class UserDetailsActivity extends BaseActivity implements HasComponent<Us
     }
 
     private void initializeInjector() {
-        this.userComponent = DaggerUserComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .userModule(new UserModule(this.userId))
-                .build();
+//        this.userComponent = DaggerUserComponent.builder()
+//                .applicationComponent(getApplicationComponent())
+//                .activityModule(getActivityModule())
+//                .userModule(new UserModule(this.userId))
+//                .build();
+        this.userComponent= AppContext.get().getApplicationComponent().plus(new UserModule(this.userId));
     }
     @Override
     public UserComponent getComponent() {

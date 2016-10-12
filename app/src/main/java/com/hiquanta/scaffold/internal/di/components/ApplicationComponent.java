@@ -9,6 +9,8 @@ import com.hiquanta.domain.repository.LoginInfoRepository;
 import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.internal.di.modules.ApplicationModule;
 
+import com.hiquanta.scaffold.internal.di.modules.LoginModule;
+import com.hiquanta.scaffold.internal.di.modules.UserModule;
 import com.hiquanta.scaffold.view.activity.BaseActivity;
 
 import javax.inject.Singleton;
@@ -27,4 +29,6 @@ public interface ApplicationComponent {
     PostExecutionThread postExecutionThread();
     UserRepository userRepository();
     LoginInfoRepository loginRepository();
+    LoginComponent plus(LoginModule loginModule);
+   UserComponent plus(UserModule userModule);
 }

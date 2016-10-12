@@ -13,6 +13,7 @@ import com.hiquanta.domain.repository.LoginInfoRepository;
 import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.UIThread;
+import com.hiquanta.scaffold.navigation.Navigator;
 
 import javax.inject.Singleton;
 
@@ -64,5 +65,10 @@ public class ApplicationModule {
     @Singleton
     LoginInfoRepository provideLoginInfoRepository(LoginInfoDataRepository loginInfoDataRepository) {
         return loginInfoDataRepository;
+    }
+    @Provides
+    @Singleton
+    Navigator provideNavigator(){
+        return new Navigator();
     }
 }

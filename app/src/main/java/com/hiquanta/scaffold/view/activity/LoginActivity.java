@@ -6,12 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ProgressBar;
 
+import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.R;
 import com.hiquanta.scaffold.internal.di.HasComponent;
 
-import com.hiquanta.scaffold.internal.di.components.DaggerLoginComponent;
 import com.hiquanta.scaffold.internal.di.components.LoginComponent;
 import com.hiquanta.scaffold.internal.di.modules.LoginModule;
 import com.hiquanta.scaffold.presenter.LoginPresenter;
@@ -35,7 +34,7 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
     EditText passWord;
     @BindView(R.id.rl_progress)
     FrameLayout rl_progress;
-    private LoginComponent loginComponent;
+  private LoginComponent loginComponent;
 
     @Inject
     LoginPresenter loginPresenter;
@@ -74,11 +73,13 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
     }
 
     private void initializeInjector() {
-        this.loginComponent = DaggerLoginComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .loginModule(new LoginModule())
-                .build();
+//        this.loginComponent = DaggerLoginComponent.builder()
+//                .applicationComponent(getApplicationComponent())
+//                .activityModule(getActivityModule())
+//                .loginModule(new LoginModule())
+//                .build();
+//        this.loginComponent.inject(this);
+        this.loginComponent=   AppContext.get().getApplicationComponent().plus(new LoginModule());
         this.loginComponent.inject(this);
     }
 

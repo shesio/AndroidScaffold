@@ -3,12 +3,12 @@ package com.hiquanta.scaffold.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
+import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.R;
 import com.hiquanta.scaffold.internal.di.HasComponent;
-import com.hiquanta.scaffold.internal.di.components.DaggerUserComponent;
 import com.hiquanta.scaffold.internal.di.components.UserComponent;
+import com.hiquanta.scaffold.internal.di.modules.UserModule;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.fragment.UserListFragment;
 
@@ -34,10 +34,12 @@ public class UserListActivity extends BaseActivity implements HasComponent<UserC
         }
     }
     private void initializeInjector() {
-        this.userComponent = DaggerUserComponent.builder()
-                .applicationComponent(getApplicationComponent())
-                .activityModule(getActivityModule())
-                .build();
+//        this.userComponent = DaggerUserComponent.builder()
+//                .applicationComponent(getApplicationComponent())
+//                .activityModule(getActivityModule())
+//                .build();
+        this.userComponent= AppContext.get().getApplicationComponent().plus(new UserModule());
+
     }
     @Override
     public UserComponent getComponent() {

@@ -7,12 +7,13 @@ import com.hiquanta.scaffold.view.fragment.UserDetailsFragment;
 import com.hiquanta.scaffold.view.fragment.UserListFragment;
 
 import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by hiquanta on 2016/9/26.
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class,modules = {ActivityModule.class, UserModule.class})
+@Subcomponent(modules = {ActivityModule.class, UserModule.class})
 public interface UserComponent {
     void inject(UserListFragment userListFragment);
     void inject(UserDetailsFragment userDetailsFragment);

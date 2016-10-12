@@ -39,6 +39,7 @@ public class UserListFragment extends BaseFragment implements UserListView {
     @Inject
     UsersAdapter usersAdapter;
 
+
     @BindView(R.id.rv_users)
     RecyclerView rv_users;
     @BindView(R.id.rl_progress)
