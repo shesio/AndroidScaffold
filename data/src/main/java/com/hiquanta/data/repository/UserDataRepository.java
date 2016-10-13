@@ -31,8 +31,8 @@ public class UserDataRepository implements UserRepository {
     }
 
     @Override
-    public Observable<Reply<List<User>>> users() {
-        return cacheProviders.userEntityList(restApiWrapper.userEntityList(), new DynamicKey("test"), new EvictDynamicKey(false))
+    public Observable<Reply<List<User>>> users(boolean isEvict) {
+        return cacheProviders.userEntityList(restApiWrapper.userEntityList(), new DynamicKey("test"), new EvictDynamicKey(isEvict))
                 .map(this.userEntityDataMapper::transformList);
     }
 

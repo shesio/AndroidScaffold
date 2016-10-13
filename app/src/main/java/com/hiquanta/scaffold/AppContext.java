@@ -6,6 +6,8 @@ import com.hiquanta.scaffold.internal.di.components.ApplicationComponent;
 import com.hiquanta.scaffold.internal.di.components.DaggerApplicationComponent;
 import com.hiquanta.scaffold.internal.di.modules.ApplicationModule;
 
+import java.io.File;
+
 /**
  * Created by hiquanta on 2016/9/26.
  */
@@ -20,6 +22,7 @@ public class AppContext extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        File file= this.getFilesDir();
         this.initializeInjector();
 
     }

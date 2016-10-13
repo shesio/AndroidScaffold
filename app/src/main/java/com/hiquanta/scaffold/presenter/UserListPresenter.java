@@ -43,12 +43,10 @@ public class UserListPresenter implements Presenter {
     public void setView(UserListView view) {
         this.viewListView = view;
     }
-
     @Override
     public void resume() {
 
     }
-
     @Override
     public void pause() {
 
@@ -103,6 +101,7 @@ public class UserListPresenter implements Presenter {
     }
 
     private void getUserList() {
+        getUserListUseCase.setEvict(true);
         this.getUserListUseCase.execute(new UserListSubscriber());
     }
 

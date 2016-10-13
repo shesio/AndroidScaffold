@@ -17,7 +17,7 @@ public abstract class UseCase{
     private final ThreadExecutor threadExecutor;
     private final PostExecutionThread postExecutionThread;
     private Subscription subscription = Subscriptions.empty();
-
+    private boolean isEvict=false;
     protected UseCase(ThreadExecutor threadExecutor,
                       PostExecutionThread postExecutionThread) {
         this.threadExecutor = threadExecutor;
@@ -37,5 +37,13 @@ public abstract class UseCase{
         if (!subscription.isUnsubscribed()) {
             subscription.unsubscribe();
         }
+    }
+
+    public boolean isEvict() {
+        return isEvict;
+    }
+
+    public void setEvict(boolean evict) {
+        isEvict = evict;
     }
 }

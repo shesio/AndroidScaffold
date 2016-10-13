@@ -97,7 +97,6 @@ public class LoginPresenter implements Presenter {
         public void onError(Throwable e) {
             LoginPresenter.this.hideViewLoading();
             LoginPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
-            //loginView.showError(e.toString());
 
         }
 

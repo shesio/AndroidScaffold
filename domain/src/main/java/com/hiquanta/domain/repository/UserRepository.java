@@ -12,7 +12,7 @@ import rx.Observable;
  */
 
 public interface UserRepository {
-    Observable<Reply<List<User>>> users();
+    Observable<Reply<List<User>>> users(boolean isEvict);
    // Observable<User> user(final int userId);
     Observable<Reply<User>> user(final int userId);
 }

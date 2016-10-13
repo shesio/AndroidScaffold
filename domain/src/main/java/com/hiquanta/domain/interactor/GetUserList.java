@@ -24,7 +24,7 @@ public class GetUserList extends UseCase{
 
     @Override
     protected Observable buildUseCaseObservable() {
-        return this.userRepository.users();
+        return this.userRepository.users(isEvict());
     }
 
 
