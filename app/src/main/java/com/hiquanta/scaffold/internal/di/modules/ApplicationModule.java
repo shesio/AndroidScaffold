@@ -6,6 +6,7 @@ import com.hiquanta.data.cache.CacheProviders;
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.cache.UserCacheImpl;
 import com.hiquanta.data.executor.JobExecutor;
+import com.hiquanta.data.net.RestApiWrapper;
 import com.hiquanta.data.repository.LoginInfoDataRepository;
 import com.hiquanta.data.repository.UserDataRepository;
 import com.hiquanta.domain.executor.PostExecutionThread;
@@ -64,6 +65,11 @@ public class ApplicationModule {
         return new RxCache.Builder()
                 .persistence(context.getFilesDir(), new GsonSpeaker())
                 .using(CacheProviders.class);
+    }
+    @Provides
+    @Singleton
+    RestApiWrapper provideRestApiWrapperProviders(Context context){
+        return new RestApiWrapper(context);
     }
 
     @Provides

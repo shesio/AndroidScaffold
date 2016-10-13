@@ -4,6 +4,7 @@ import com.hiquanta.domain.User;
 
 import java.util.List;
 
+import io.rx_cache.Reply;
 import rx.Observable;
 
 /**
@@ -11,6 +12,7 @@ import rx.Observable;
  */
 
 public interface UserRepository {
-    Observable<List<User>> users();
-    Observable<User> user(final int userId);
+    Observable<Reply<List<User>>> users();
+   // Observable<User> user(final int userId);
+    Observable<Reply<User>> user(final int userId);
 }

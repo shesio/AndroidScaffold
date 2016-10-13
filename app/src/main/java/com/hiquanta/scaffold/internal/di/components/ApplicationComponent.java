@@ -1,12 +1,5 @@
 package com.hiquanta.scaffold.internal.di.components;
 
-import android.content.Context;
-
-
-import com.hiquanta.domain.executor.PostExecutionThread;
-import com.hiquanta.domain.executor.ThreadExecutor;
-import com.hiquanta.domain.repository.LoginInfoRepository;
-import com.hiquanta.domain.repository.UserRepository;
 import com.hiquanta.scaffold.internal.di.modules.ApplicationModule;
 
 import com.hiquanta.scaffold.internal.di.modules.LoginModule;

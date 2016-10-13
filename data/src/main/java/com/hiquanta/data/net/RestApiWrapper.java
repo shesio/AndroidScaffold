@@ -68,7 +68,6 @@ public class RestApiWrapper {
                                 , throwable -> subscriber.onError(new NetworkConnectionException(throwable.getCause()))
                                 , () -> subscriber.onCompleted()
                         );
-
             } else {
                 subscriber.onError(new NetworkConnectionException());
             }

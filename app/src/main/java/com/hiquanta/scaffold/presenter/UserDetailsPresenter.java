@@ -16,6 +16,8 @@ import com.hiquanta.scaffold.view.UserDetailsView;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import io.rx_cache.Reply;
+
 /**
  * Created by hiquanta on 2016/9/26.
  */
@@ -94,7 +96,7 @@ public class UserDetailsPresenter implements Presenter {
         this.getUserDetailsUseCase.execute(new UserDetailsSubscriber());
     }
 
-    private final class UserDetailsSubscriber extends DefaultSubscriber<User> {
+    private final class UserDetailsSubscriber extends DefaultSubscriber<Reply<User>> {
 
         @Override
         public void onCompleted() {
@@ -109,8 +111,8 @@ public class UserDetailsPresenter implements Presenter {
         }
 
         @Override
-        public void onNext(User user) {
-            UserDetailsPresenter.this.showUserDetailsInView(user);
+        public void onNext(Reply<User> user) {
+            UserDetailsPresenter.this.showUserDetailsInView(user.getData());
         }
     }
 }

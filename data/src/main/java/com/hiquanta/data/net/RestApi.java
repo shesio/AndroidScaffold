@@ -14,13 +14,15 @@ import rx.Observable;
  */
 
 public interface RestApi {
-  String API_BASE_URL = "http://www.android10.org/myapi/";
-  //  String API_BASE_URL = "http://192.168.1.201/myapi/";
+    String API_BASE_URL = "http://www.android10.org/myapi/";
+    //  String API_BASE_URL = "http://192.168.1.201/myapi/";
 
     @GET("users.json")
     Observable<List<UserEntity>> userEntityList();
+
     @GET("user_{userId}.json")
     Observable<UserEntity> userEntityById(final @Path("userId") int userId);
-  @GET("user_{userId}.json")
-  Observable<LoginInfoEntity> doLogin(final @Path("userId") int userId);
+
+    @GET("user_{userId}.json")
+    Observable<LoginInfoEntity> doLogin(final @Path("userId") int userId);
 }

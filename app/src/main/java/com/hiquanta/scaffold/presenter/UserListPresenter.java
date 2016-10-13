@@ -19,6 +19,8 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import io.rx_cache.Reply;
+
 /**
  * Created by hiquanta on 2016/9/26.
  */
@@ -104,7 +106,7 @@ public class UserListPresenter implements Presenter {
         this.getUserListUseCase.execute(new UserListSubscriber());
     }
 
-    private final class UserListSubscriber extends DefaultSubscriber<List<User>> {
+    private final class UserListSubscriber extends DefaultSubscriber<Reply<List<User>>> {
 
         @Override
         public void onCompleted() {
@@ -119,8 +121,8 @@ public class UserListPresenter implements Presenter {
         }
 
         @Override
-        public void onNext(List<User> users) {
-            UserListPresenter.this.showUsersCollectionInView(users);
+        public void onNext(Reply<List<User>> users) {
+            UserListPresenter.this.showUsersCollectionInView(users.getData());
         }
     }
 }
