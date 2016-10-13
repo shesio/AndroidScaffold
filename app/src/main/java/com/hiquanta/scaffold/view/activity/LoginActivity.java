@@ -117,5 +117,6 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
     @Override
     public void navigateToHome() {
         navigator.navigateToHome(this);
+        finish();
     }
 }

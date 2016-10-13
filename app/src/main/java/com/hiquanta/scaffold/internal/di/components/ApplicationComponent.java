@@ -24,11 +24,6 @@ import dagger.Component;
 @Component(modules = {ApplicationModule.class})
 public interface ApplicationComponent {
     void inject(BaseActivity baseActivity);
-    Context context();
-    ThreadExecutor threadExecutor();
-    PostExecutionThread postExecutionThread();
-    UserRepository userRepository();
-    LoginInfoRepository loginRepository();
     LoginComponent plus(LoginModule loginModule);
    UserComponent plus(UserModule userModule);
 }

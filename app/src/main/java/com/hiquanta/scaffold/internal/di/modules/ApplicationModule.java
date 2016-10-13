@@ -2,6 +2,7 @@ package com.hiquanta.scaffold.internal.di.modules;
 
 import android.content.Context;
 
+import com.hiquanta.data.cache.CacheProviders;
 import com.hiquanta.data.cache.UserCache;
 import com.hiquanta.data.cache.UserCacheImpl;
 import com.hiquanta.data.executor.JobExecutor;
@@ -19,6 +20,8 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.rx_cache.internal.RxCache;
+import io.victoralbertos.jolyglot.GsonSpeaker;
 
 /**
  * Created by hiquanta on 2016/9/26.
@@ -54,6 +57,13 @@ public class ApplicationModule {
     @Singleton
     UserCache provideUserCache(UserCacheImpl userCache) {
         return userCache;
+    }
+    @Provides
+    @Singleton
+    CacheProviders provideCacheProviders(Context context){
+        return new RxCache.Builder()
+                .persistence(context.getFilesDir(), new GsonSpeaker())
+                .using(CacheProviders.class);
     }
 
     @Provides

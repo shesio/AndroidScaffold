@@ -18,7 +18,6 @@ import javax.inject.Singleton;
 
 public class Navigator {
 
-
     public Navigator() {
 
     }

@@ -25,6 +25,8 @@ ext {
     okHttp3Version = '3.0.1'
     androidAnnotationsVersion = '21.0.3'
     retrofitVersion = "2.1.0"
+    RxCacheVersion = "1.6.4"
+    JolyglotGsonVersion = "0.0.3"
     //Testing
     robolectricVersion = '3.0'
     jUnitVersion = '4.12'
@@ -72,7 +74,6 @@ ext {
     dataDependencies = [
             daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger             : "com.google.dagger:dagger:${daggerVersion}",
-         //   okHttp             : "com.squareup.okhttp:okhttp:${okHttpVersion}",
             gson               : "com.google.code.gson:gson:${gsonVersion}",
             rxJava             : "io.reactivex:rxjava:${rxJavaVersion}",
             rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
@@ -83,7 +84,9 @@ ext {
             retrofit2_converter: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofit2_adapter  : "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
             okhttp3            : "com.squareup.okhttp3:okhttp:${okHttp3Version}",
-            okhttp3_logging:"com.squareup.okhttp3:logging-interceptor:${okHttp3Version}"
+            okhttp3_logging    : "com.squareup.okhttp3:logging-interceptor:${okHttp3Version}",
+            rxCache            : "com.github.VictorAlbertos.RxCache:runtime:${RxCacheVersion}",
+            Jolyglot_Gson      : "com.github.VictorAlbertos.Jolyglot:gson:${JolyglotGsonVersion}",
     ]
 
     dataTestDependencies = [
