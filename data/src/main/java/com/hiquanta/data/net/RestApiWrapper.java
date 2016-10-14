@@ -3,22 +3,16 @@ package com.hiquanta.data.net;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
-
 import com.hiquanta.data.entity.LoginInfoEntity;
 import com.hiquanta.data.entity.UserEntity;
 import com.hiquanta.data.exception.NetworkConnectionException;
 import com.hiquanta.data.net.component.DaggerRestApiComponent;
 import com.hiquanta.data.net.module.RestApiModule;
-
 import java.util.List;
 
-import javax.inject.Inject;
 
-import retrofit2.http.Path;
 import rx.Observable;
-import rx.functions.Action0;
-import rx.functions.Action1;
+
 
 /**
  * http://www.jianshu.com/p/2b0aeb6b6b61
@@ -26,13 +20,14 @@ import rx.functions.Action1;
  */
 
 public class RestApiWrapper {
-    @Inject
+
     RestApi restApi;
     private final Context context;
 
-    public RestApiWrapper(Context context) {
+    public RestApiWrapper(Context context,RestApi restApi) {
         this.context = context;
-        initComponent();
+        this.restApi=restApi;
+
     }
 
     private void initComponent() {

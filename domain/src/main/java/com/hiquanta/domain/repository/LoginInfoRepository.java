@@ -4,6 +4,7 @@ import com.hiquanta.domain.LoginInfo;
 import com.hiquanta.domain.User;
 
 
+import io.rx_cache.Reply;
 import rx.Observable;
 
 /**

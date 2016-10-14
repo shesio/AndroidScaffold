@@ -21,8 +21,7 @@ dependencies {
     provided domainDependencies.javaxAnnotation
     compile domainDependencies.javaxInject
     compile domainDependencies.rxJava
-    compile "com.github.VictorAlbertos.RxCache:runtime:1.6.4"
-    compile 'com.github.VictorAlbertos.Jolyglot:gson:0.0.3'
+    compile dataDependencies.rxCache
 
     testCompile domainTestDependencies.junit
     testCompile domainTestDependencies.mockito

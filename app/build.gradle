@@ -71,6 +71,7 @@ dependencies {
     compile presentationDependencies.recyclerView
     compile presentationDependencies.v7_appcompat
     compile presentationDependencies.rxJava
+    compile presentationDependencies.BaseRecyclerViewAdapterHelper
     compile presentationDependencies.rxAndroid
     provided presentationDependencies.javaxAnnotation
     //Test

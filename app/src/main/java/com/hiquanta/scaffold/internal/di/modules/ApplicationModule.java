@@ -3,9 +3,8 @@ package com.hiquanta.scaffold.internal.di.modules;
 import android.content.Context;
 
 import com.hiquanta.data.cache.CacheProviders;
-import com.hiquanta.data.cache.UserCache;
-import com.hiquanta.data.cache.UserCacheImpl;
 import com.hiquanta.data.executor.JobExecutor;
+import com.hiquanta.data.net.RestApi;
 import com.hiquanta.data.net.RestApiWrapper;
 import com.hiquanta.data.repository.LoginInfoDataRepository;
 import com.hiquanta.data.repository.UserDataRepository;
@@ -54,11 +53,7 @@ public class ApplicationModule {
         return uiThread;
     }
 
-    @Provides
-    @Singleton
-    UserCache provideUserCache(UserCacheImpl userCache) {
-        return userCache;
-    }
+
     @Provides
     @Singleton
     CacheProviders provideCacheProviders(Context context){
@@ -68,8 +63,8 @@ public class ApplicationModule {
     }
     @Provides
     @Singleton
-    RestApiWrapper provideRestApiWrapperProviders(Context context){
-        return new RestApiWrapper(context);
+    RestApiWrapper provideRestApiWrapperProviders(Context context, RestApi restApi){
+        return new RestApiWrapper(context,restApi);
     }
 
     @Provides

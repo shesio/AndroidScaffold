@@ -1,8 +1,8 @@
 package com.hiquanta.scaffold.presenter;
 
-import com.hiquanta.data.repository.datasource.LoginInfo.LoginInfoDataStore;
+
 import com.hiquanta.domain.LoginInfo;
-import com.hiquanta.domain.User;
+
 import com.hiquanta.domain.exception.DefaultErrorBundle;
 import com.hiquanta.domain.exception.ErrorBundle;
 import com.hiquanta.domain.interactor.DefaultSubscriber;
