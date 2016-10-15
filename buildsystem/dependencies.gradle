@@ -6,16 +6,16 @@ allprojects {
 
 ext {
     //Android
-    androidBuildToolsVersion = "23.0.1"
-    androidMinSdkVersion = 15
-    androidTargetSdkVersion = 21
-    androidCompileSdkVersion = 21
+    androidBuildToolsVersion = "23.0.2"
+    androidMinSdkVersion = 14
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 23
 
     //Libraries
     daggerVersion = '2.6'
     butterKnifeVersion = '8.4.0'
-    recyclerViewVersion = '21.0.3'
-    v7_appcompatVersion = "21.0.3"
+    recyclerViewVersion = '23.3.0'
+    v7_appcompatVersion = "23.3.0"
     rxJavaVersion = '1.2.1'
     rxAndroidVersion = '1.2.1'
     javaxAnnotationVersion = '1.0'
@@ -23,7 +23,7 @@ ext {
     gsonVersion = '2.4'
     okHttpVersion = '2.5.0'
     okHttp3Version = '3.0.1'
-    androidAnnotationsVersion = '21.0.3'
+    androidAnnotationsVersion = '23.3.0'
     retrofitVersion = "2.1.0"
     RxCacheVersion = "1.6.4"
     JolyglotGsonVersion = "0.0.3"

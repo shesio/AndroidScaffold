@@ -18,6 +18,7 @@ import dagger.Component;
 @Component(modules = {ApplicationModule.class, RestApiModule.class})
 public interface ApplicationComponent {
     void inject(BaseActivity baseActivity);
+
     LoginComponent plus(LoginModule loginModule);
    UserComponent plus(UserModule userModule);
 }

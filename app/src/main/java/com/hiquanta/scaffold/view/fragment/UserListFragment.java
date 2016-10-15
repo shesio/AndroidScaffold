@@ -107,6 +107,7 @@ public class UserListFragment extends BaseFragment implements UserListView {
     public void renderUserList(Collection<UserModel> userModelCollection) {
         if (userModelCollection != null) {
             this.usersAdapter.setUsersCollection(userModelCollection);
+
         }
     }
 

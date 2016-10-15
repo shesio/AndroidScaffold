@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidScaffold.iml" filepath="$PROJECT_DIR$/AndroidScaffold.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Libraries/Libraries.iml" filepath="$PROJECT_DIR$/Libraries/Libraries.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />
       <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Libraries/library/library.iml" filepath="$PROJECT_DIR$/Libraries/library/library.iml" />
     </modules>
   </component>
 </project>
