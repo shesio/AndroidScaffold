@@ -61,6 +61,7 @@ dependencies {
     def presentationTestDependencies = rootProject.ext.presentationTestDependencies
     def developmentDependencies = rootProject.ext.developmentDependencies
     compile project(':Libraries:library')
+    compile project(':Libraries:AndroidSlidingUpPanel')
     compile project(':domain')
     compile project(':data')
     //Library

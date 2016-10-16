@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AndroidScaffold.iml" filepath="$PROJECT_DIR$/AndroidScaffold.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Libraries/AndroidSlidingUpPanel/AndroidSlidingUpPanel.iml" filepath="$PROJECT_DIR$/Libraries/AndroidSlidingUpPanel/AndroidSlidingUpPanel.iml" />
       <module fileurl="file://$PROJECT_DIR$/Libraries/Libraries.iml" filepath="$PROJECT_DIR$/Libraries/Libraries.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/data/data.iml" filepath="$PROJECT_DIR$/data/data.iml" />

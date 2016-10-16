@@ -1,66 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:gravity="bottom"
+    sothree:umanoDragView="@+id/dragView"
+    sothree:umanoOverlay="true"
+    sothree:umanoPanelHeight="68dp"
+    sothree:umanoParallaxOffset="100dp"
+    sothree:umanoShadowHeight="4dp">
 
-  <com.hiquanta.scaffold.view.widget.AutoLoadImageView
-      android:id="@+id/iv_cover"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/iv_cover_height"
-      android:background="@android:color/darker_gray"
-      />
-
-  <TextView
-      android:id="@+id/tv_fullname"
-      style="@style/AppTheme.TextViewHeader"
-      android:freezesText="true"
-      />
-
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_marginLeft="@dimen/activity_horizontal_margin"
-      android:layout_marginRight="@dimen/activity_horizontal_margin"
-      android:orientation="vertical"
-      >
-    <TextView
-        style="@style/AppTheme.TextViewTitle"
-        android:text="@string/view_text_email"
-        />
-    <TextView
-        android:id="@+id/tv_email"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:freezesText="true"
-        />
-    <TextView
-        style="@style/AppTheme.TextViewTitle"
-        android:text="@string/view_text_followers"
-        />
-    <TextView
-        android:id="@+id/tv_followers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:freezesText="true"
-        />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        style="@style/AppTheme.TextViewTitle"
-        android:text="@string/view_text_description"
-        />
-    <TextView
-        android:id="@+id/tv_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:freezesText="true"
-        />
-    <TextView
-        android:id="@+id/tv_from"
-        style="@style/AppTheme.TextViewTitle"
-        android:text="@string/view_text_from"
-        />
-  </LinearLayout>
+        <com.hiquanta.scaffold.view.widget.AutoLoadImageView
+            android:id="@+id/iv_cover"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:scaleType="fitXY" />
 
-</LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dragView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+
+        android:focusable="false"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_fullname"
+                android:background="@android:color/holo_orange_light"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="0dp"
+                style="@style/AppTheme.TextViewHeader"
+                android:freezesText="true" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            >
+            <TextView
+                style="@style/AppTheme.TextViewTitle"
+                android:text="@string/view_text_email" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:freezesText="true" />
+
+            <TextView
+                style="@style/AppTheme.TextViewTitle"
+                android:text="@string/view_text_followers" />
+
+            <TextView
+                android:id="@+id/tv_followers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:freezesText="true" />
+
+            <TextView
+                style="@style/AppTheme.TextViewTitle"
+                android:text="@string/view_text_description" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:freezesText="true" />
+
+            <TextView
+                android:id="@+id/tv_from"
+                style="@style/AppTheme.TextViewTitle"
+                android:text="@string/view_text_from" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
