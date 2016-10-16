@@ -42,6 +42,8 @@ public class UserDetailsFragment  extends BaseFragment implements UserDetailsVie
     @BindView(R.id.rl_retry) RelativeLayout rl_retry;
     @BindView(R.id.bt_retry)
     Button bt_retry;
+    @BindView(R.id.tv_from)
+    TextView tv_from;
 
     public UserDetailsFragment() {
         setRetainInstance(true);
@@ -95,6 +97,12 @@ public class UserDetailsFragment  extends BaseFragment implements UserDetailsVie
             this.tv_description.setText(user.getDescription());
         }
     }
+
+    @Override
+    public void dataFrom(String from) {
+        tv_from.append(from);
+    }
+
     @Override
     public void showLoading() {
         this.rl_progress.setVisibility(View.VISIBLE);

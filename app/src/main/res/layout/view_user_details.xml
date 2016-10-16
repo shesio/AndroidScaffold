@@ -56,6 +56,11 @@
         android:layout_height="wrap_content"
         android:freezesText="true"
         />
+    <TextView
+        android:id="@+id/tv_from"
+        style="@style/AppTheme.TextViewTitle"
+        android:text="@string/view_text_from"
+        />
   </LinearLayout>
 
 </LinearLayout>

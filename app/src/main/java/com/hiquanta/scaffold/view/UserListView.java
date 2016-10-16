@@ -13,4 +13,5 @@ public interface UserListView extends LoadDataView ,RetryView{
     void renderUserList(Collection<UserModel> userModelCollection);
 
     void viewUser(UserModel userModel);
+    void dataFrom(String from);
 }

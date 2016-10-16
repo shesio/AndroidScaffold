@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hiquanta.scaffold.R;
 import com.hiquanta.scaffold.internal.di.components.UserComponent;
@@ -47,6 +48,8 @@ public class UserListFragment extends BaseFragment implements UserListView {
     @BindView(R.id.rl_retry) RelativeLayout rl_retry;
     @BindView(R.id.bt_retry)
     Button bt_retry;
+    @BindView(R.id.from)
+    TextView from;
 
     private UserListListener userListListener;
 
@@ -116,6 +119,11 @@ public class UserListFragment extends BaseFragment implements UserListView {
         if (this.userListListener != null) {
             this.userListListener.onUserClicked(userModel);
         }
+    }
+
+    @Override
+    public void dataFrom(String from) {
+        this.from.setText(from);
     }
 
     @Override

@@ -9,4 +9,5 @@ import com.hiquanta.scaffold.model.UserModel;
 
 public interface UserDetailsView extends LoadDataView,RetryView {
     void renderUser(UserModel user);
+    void dataFrom(String from);
 }

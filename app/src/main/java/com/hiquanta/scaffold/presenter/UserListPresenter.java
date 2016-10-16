@@ -101,7 +101,7 @@ public class UserListPresenter implements Presenter {
     }
 
     private void getUserList() {
-        getUserListUseCase.setEvict(true);
+        getUserListUseCase.setEvict(false);
         this.getUserListUseCase.execute(new UserListSubscriber());
     }
 
@@ -121,6 +121,7 @@ public class UserListPresenter implements Presenter {
 
         @Override
         public void onNext(Reply<List<User>> users) {
+            viewListView.dataFrom(users.getSource().name());
             UserListPresenter.this.showUsersCollectionInView(users.getData());
         }
     }

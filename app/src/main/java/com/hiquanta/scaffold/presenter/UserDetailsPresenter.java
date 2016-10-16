@@ -112,6 +112,7 @@ public class UserDetailsPresenter implements Presenter {
 
         @Override
         public void onNext(Reply<User> user) {
+            viewDetailsView.dataFrom(user.getSource().name());
             UserDetailsPresenter.this.showUserDetailsInView(user.getData());
         }
     }
