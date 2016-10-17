@@ -6,5 +6,13 @@
     {
         "merged": "E:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\build\\intermediates\\res\\merged\\release\\drawable\\above_shadow.xml",
         "source": "E:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\src\\main\\res\\drawable\\above_shadow.xml"
+    },
+    {
+        "merged": "F:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\build\\intermediates\\res\\merged\\release\\drawable\\above_shadow.xml",
+        "source": "F:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\src\\main\\res\\drawable\\above_shadow.xml"
+    },
+    {
+        "merged": "F:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\build\\intermediates\\res\\merged\\release\\drawable\\below_shadow.xml",
+        "source": "F:\\git\\AndroidScaffold\\Libraries\\AndroidSlidingUpPanel\\src\\main\\res\\drawable\\below_shadow.xml"
     }
 ]

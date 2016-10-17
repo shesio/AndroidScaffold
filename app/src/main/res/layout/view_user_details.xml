@@ -42,59 +42,69 @@
 
             <TextView
                 android:id="@+id/tv_fullname"
-                android:background="@android:color/holo_orange_light"
+                style="@style/AppTheme.TextViewHeader"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="0dp"
-                style="@style/AppTheme.TextViewHeader"
+                android:background="@android:color/holo_orange_light"
                 android:freezesText="true" />
 
 
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/sv"
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#ffffff"
             >
-            <TextView
-                style="@style/AppTheme.TextViewTitle"
-                android:text="@string/view_text_email" />
 
-            <TextView
-                android:id="@+id/tv_email"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:freezesText="true" />
+                android:layout_height="match_parent"
 
-            <TextView
-                style="@style/AppTheme.TextViewTitle"
-                android:text="@string/view_text_followers" />
+                android:clickable="false"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_followers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:freezesText="true" />
+                <TextView
+                    style="@style/AppTheme.TextViewTitle"
+                    android:text="@string/view_text_email" />
 
-            <TextView
-                style="@style/AppTheme.TextViewTitle"
-                android:text="@string/view_text_description" />
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:freezesText="true" />
 
-            <TextView
-                android:id="@+id/tv_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:freezesText="true" />
+                <TextView
+                    style="@style/AppTheme.TextViewTitle"
+                    android:text="@string/view_text_followers" />
 
-            <TextView
-                android:id="@+id/tv_from"
-                style="@style/AppTheme.TextViewTitle"
-                android:text="@string/view_text_from" />
+                <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:freezesText="true" />
 
-        </LinearLayout>
+                <TextView
+                    style="@style/AppTheme.TextViewTitle"
+                    android:text="@string/view_text_description" />
 
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:freezesText="true" />
+
+                <TextView
+                    android:id="@+id/tv_from"
+                    style="@style/AppTheme.TextViewTitle"
+                    android:text="@string/view_text_from" />
+
+
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
+
 </com.sothree.slidinguppanel.SlidingUpPanelLayout>
