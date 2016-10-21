@@ -28,6 +28,7 @@ ext {
     RxCacheVersion = "1.6.4"
     JolyglotGsonVersion = "0.0.3"
     BaseRecyclerViewAdapterHelperVersion = "2.2.0"
+    loggerVersion = "1.15"
     //Testing
     robolectricVersion = '3.0'
     jUnitVersion = '4.12'
@@ -51,6 +52,7 @@ ext {
             rxAndroid                    : "io.reactivex:rxandroid:${rxAndroidVersion}",
             javaxAnnotation              : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             BaseRecyclerViewAdapterHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:${BaseRecyclerViewAdapterHelperVersion}",
+            logger             : "com.orhanobut:logger:${loggerVersion}",
     ]
 
     presentationTestDependencies = [
@@ -88,6 +90,7 @@ ext {
             okhttp3_logging    : "com.squareup.okhttp3:logging-interceptor:${okHttp3Version}",
             rxCache            : "com.github.VictorAlbertos.RxCache:runtime:${RxCacheVersion}",
             Jolyglot_Gson      : "com.github.VictorAlbertos.Jolyglot:gson:${JolyglotGsonVersion}",
+            logger             : "com.orhanobut:logger:${loggerVersion}",
     ]
 
     dataTestDependencies = [
