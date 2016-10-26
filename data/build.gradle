@@ -70,6 +70,7 @@ dependencies {
     compile dataDependencies.retrofit2_adapter
     compile dataDependencies.rxCache
     compile dataDependencies.Jolyglot_Gson
+    compile dataDependencies.logger
 
 
     testCompile testDependencies.junit

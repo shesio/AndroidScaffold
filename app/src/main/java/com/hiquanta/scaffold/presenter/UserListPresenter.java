@@ -12,6 +12,7 @@ import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 import com.hiquanta.scaffold.internal.di.PerActivity;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.UserListView;
+import com.orhanobut.logger.Logger;
 
 import java.util.Collection;
 import java.util.List;
@@ -110,6 +111,7 @@ public class UserListPresenter implements Presenter {
 
         @Override
         public void onError(Throwable e) {
+            Logger.e(e,"onError");
             UserListPresenter.this.hideViewLoading();
             UserListPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
             UserListPresenter.this.showViewRetry();
