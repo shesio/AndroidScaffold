@@ -16,7 +16,7 @@ import rx.Observable;
  */
 
 public interface CacheProviders {
-    @LifeCache(duration = 2, timeUnit = TimeUnit.MINUTES)
+    @LifeCache(duration = 2, timeUnit = TimeUnit.SECONDS)
     Observable<Reply<List<UserEntity>>> userEntityList(Observable<List<UserEntity>> userEntityListObservable, DynamicKey idLastUserQueried, EvictProvider evictProvider);
 
     @LifeCache(duration = 2, timeUnit = TimeUnit.MINUTES)

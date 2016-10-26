@@ -28,6 +28,7 @@ ext {
     RxCacheVersion = "1.6.4"
     JolyglotGsonVersion = "0.0.3"
     BaseRecyclerViewAdapterHelperVersion = "2.2.0"
+    modelmapperVersion = "0.7.5"
     //Testing
     robolectricVersion = '3.0'
     jUnitVersion = '4.12'
@@ -65,6 +66,7 @@ ext {
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
             rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+            modelmapper    : "org.modelmapper:modelmapper:${modelmapperVersion}",
     ]
 
     domainTestDependencies = [

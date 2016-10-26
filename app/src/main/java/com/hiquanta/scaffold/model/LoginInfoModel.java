@@ -5,6 +5,10 @@ package com.hiquanta.scaffold.model;
  */
 
 public class LoginInfoModel extends UserModel {
+    public LoginInfoModel() {
+
+    }
+
     public LoginInfoModel(int userId) {
         super(userId);
     }

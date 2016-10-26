@@ -6,10 +6,10 @@ import com.hiquanta.domain.exception.DefaultErrorBundle;
 import com.hiquanta.domain.exception.ErrorBundle;
 import com.hiquanta.domain.interactor.DefaultSubscriber;
 import com.hiquanta.domain.interactor.UseCase;
+import com.hiquanta.domain.mapper.MapperUtil;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 
 import com.hiquanta.scaffold.internal.di.PerActivity;
-import com.hiquanta.scaffold.mapper.UserModelDataMapper;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.UserListView;
 
@@ -29,15 +29,12 @@ public class UserListPresenter implements Presenter {
     private UserListView viewListView;
 
     private final UseCase getUserListUseCase;
-    private final UserModelDataMapper userModelDataMapper;
 
     @Inject
     public UserListPresenter(
             @Named("userList")
-                    UseCase getUserListUserCase,
-            UserModelDataMapper userModelDataMapper) {
+                    UseCase getUserListUserCase) {
         this.getUserListUseCase = getUserListUserCase;
-        this.userModelDataMapper = userModelDataMapper;
     }
 
     public void setView(UserListView view) {
@@ -94,9 +91,8 @@ public class UserListPresenter implements Presenter {
         this.viewListView.showError(errorMessage);
     }
 
-    private void showUsersCollectionInView(Collection<User> usersCollection) {
-        final Collection<UserModel> userModelsCollection =
-                this.userModelDataMapper.transform(usersCollection);
+    private void showUsersCollectionInView(List<User> usersCollection) {
+        final Collection<UserModel> userModelsCollection = MapperUtil.mapList(usersCollection,UserModel.class);
         this.viewListView.renderUserList(userModelsCollection);
     }
 

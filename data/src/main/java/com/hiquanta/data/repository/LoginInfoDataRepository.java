@@ -3,11 +3,11 @@ package com.hiquanta.data.repository;
 
 
 import com.hiquanta.data.cache.CacheProviders;
-import com.hiquanta.data.entity.mapper.LoginInfoEntityDataMapper;
 import com.hiquanta.data.net.RestApiWrapper;
 
 import com.hiquanta.domain.LoginInfo;
 
+import com.hiquanta.domain.mapper.MapperUtil;
 import com.hiquanta.domain.repository.LoginInfoRepository;
 
 import javax.inject.Inject;
@@ -21,17 +21,18 @@ import rx.Observable;
 public class LoginInfoDataRepository implements LoginInfoRepository {
     private final CacheProviders cacheProviders;
     private final RestApiWrapper restApiWrapper;
-    private final LoginInfoEntityDataMapper loginInfoEntityDataMapper;
+
     @Inject
-    public LoginInfoDataRepository(RestApiWrapper restApiWrapper,CacheProviders cacheProviders,
-                                   LoginInfoEntityDataMapper loginInfoEntityDataMapper) {
+    public LoginInfoDataRepository(RestApiWrapper restApiWrapper,CacheProviders cacheProviders) {
         this.restApiWrapper=restApiWrapper;
         this.cacheProviders=cacheProviders;
-        this.loginInfoEntityDataMapper = loginInfoEntityDataMapper;
+
     }
 
     @Override
     public Observable<LoginInfo>LoginInfo(String userName, String passWord) {
-        return restApiWrapper.doLogin(2).map(this.loginInfoEntityDataMapper::transform);
+        return restApiWrapper.doLogin(2).map(
+                loginInfoEntity-> MapperUtil.map(loginInfoEntity,LoginInfo.class)
+       );
     }
 }

@@ -8,8 +8,10 @@ package com.hiquanta.domain;
  */
 
 public class User {
-    private final int userId;
-
+    private  int userId;
+    public User(){
+        this.userId=-1;
+    }
     public User(int userId) {
         this.userId = userId;
     }
@@ -22,6 +24,10 @@ public class User {
 
     public int getUserId() {
         return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getCoverUrl() {

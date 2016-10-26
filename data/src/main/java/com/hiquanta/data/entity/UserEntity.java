@@ -17,7 +17,7 @@ public class UserEntity {
     private String coverUrl;
 
     @SerializedName("full_name")
-    private String fullname;
+    private String fullName;
 
     @SerializedName("description")
     private String description;
@@ -50,12 +50,12 @@ public class UserEntity {
         this.coverUrl = coverUrl;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getDescription() {
@@ -88,7 +88,7 @@ public class UserEntity {
         stringBuilder.append("***** User Entity Details *****\n");
         stringBuilder.append("id=" + this.userId + "\n");
         stringBuilder.append("cover url=" + this.coverUrl + "\n");
-        stringBuilder.append("fullname=" + this.fullname + "\n");
+        stringBuilder.append("fullName=" + this.fullName + "\n");
         stringBuilder.append("email=" + this.email + "\n");
         stringBuilder.append("description=" + this.description + "\n");
         stringBuilder.append("followers=" + this.followers + "\n");

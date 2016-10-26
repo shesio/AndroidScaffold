@@ -9,7 +9,9 @@ package com.hiquanta.domain;
 public class LoginInfo extends User {
     private String userName;
     private String passWord;
-
+    public LoginInfo(){
+        super(-1);
+    }
     public LoginInfo(int userId) {
         super(userId);
     }

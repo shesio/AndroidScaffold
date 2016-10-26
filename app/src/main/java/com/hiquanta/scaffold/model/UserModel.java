@@ -7,8 +7,10 @@ package com.hiquanta.scaffold.model;
  */
 
 public class UserModel {
-    private final int userId;
+    private  int userId;
+    public UserModel() {
 
+    }
     public UserModel(int userId) {
         this.userId = userId;
     }
@@ -18,6 +20,10 @@ public class UserModel {
     private String email;
     private String description;
     private int followers;
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public int getUserId() {
         return userId;

@@ -6,10 +6,10 @@ import com.hiquanta.domain.exception.DefaultErrorBundle;
 import com.hiquanta.domain.exception.ErrorBundle;
 import com.hiquanta.domain.interactor.DefaultSubscriber;
 import com.hiquanta.domain.interactor.UseCase;
+import com.hiquanta.domain.mapper.MapperUtil;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 
 import com.hiquanta.scaffold.internal.di.PerActivity;
-import com.hiquanta.scaffold.mapper.UserModelDataMapper;
 import com.hiquanta.scaffold.model.UserModel;
 import com.hiquanta.scaffold.view.UserDetailsView;
 
@@ -26,13 +26,10 @@ public class UserDetailsPresenter implements Presenter {
     private UserDetailsView viewDetailsView;
 
     private final UseCase getUserDetailsUseCase;
-    private final UserModelDataMapper userModelDataMapper;
 
     @Inject
-    public UserDetailsPresenter(@Named("userDetails") UseCase getUserDetailsUseCase,
-                                UserModelDataMapper userModelDataMapper) {
+    public UserDetailsPresenter(@Named("userDetails") UseCase getUserDetailsUseCase) {
         this.getUserDetailsUseCase = getUserDetailsUseCase;
-        this.userModelDataMapper = userModelDataMapper;
     }
 
     public void setView(UserDetailsView view) {
@@ -88,7 +85,7 @@ public class UserDetailsPresenter implements Presenter {
     }
 
     private void showUserDetailsInView(User user) {
-        final UserModel userModel = this.userModelDataMapper.transform(user);
+        final UserModel userModel =  MapperUtil.map(user,UserModel.class);
         this.viewDetailsView.renderUser(userModel);
     }
 

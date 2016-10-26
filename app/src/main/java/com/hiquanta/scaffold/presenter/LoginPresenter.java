@@ -10,7 +10,6 @@ import com.hiquanta.domain.interactor.GetLoginInfo;
 import com.hiquanta.domain.interactor.UseCase;
 import com.hiquanta.scaffold.exception.ErrorMessageFactory;
 import com.hiquanta.scaffold.internal.di.PerActivity;
-import com.hiquanta.scaffold.mapper.LoginInfoModelDataMapper;
 import com.hiquanta.scaffold.util.Validator;
 import com.hiquanta.scaffold.view.LoginView;
 
@@ -26,11 +25,9 @@ public class LoginPresenter implements Presenter {
     private LoginView loginView;
 
     private final UseCase getLoginInfoUseCase;
-    private final LoginInfoModelDataMapper loginInfoModelDataMapper;
     @Inject
-    public LoginPresenter(UseCase getLoginInfoUseCase,LoginInfoModelDataMapper loginInfoModelDataMapper) {
+    public LoginPresenter(UseCase getLoginInfoUseCase) {
         this.getLoginInfoUseCase = getLoginInfoUseCase;
-        this.loginInfoModelDataMapper=loginInfoModelDataMapper;
     }
 
     public void setView(LoginView view) {
