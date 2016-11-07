@@ -1,9 +1,10 @@
 package com.hiquanta.scaffold.view.activity;
 
-import android.app.Activity;
+
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.hiquanta.scaffold.AppContext;
 import com.hiquanta.scaffold.internal.di.components.ApplicationComponent;
@@ -16,7 +17,7 @@ import javax.inject.Inject;
  * Created by hiquanta on 2016/9/26.
  */
 
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Inject
     Navigator navigator;

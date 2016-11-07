@@ -63,6 +63,8 @@ dependencies {
     def developmentDependencies = rootProject.ext.developmentDependencies
     compile project(':Libraries:library')
     compile project(':Libraries:AndroidSlidingUpPanel')
+    compile project(':Libraries:AppIntro')
+    compile project(':Libraries:updatelib')
     compile project(':domain')
     compile project(':data')
     //Library

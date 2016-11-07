@@ -49,7 +49,7 @@ ext {
             butterKnife                  : "com.jakewharton:butterknife:${butterKnifeVersion}",
             butterKnifeCompiler          : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
             recyclerView                 : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
-            v7_appcompat                 : "com.android.support:recyclerview-v7:${v7_appcompatVersion}",
+            v7_appcompat                 : "com.android.support:appcompat-v7:${v7_appcompatVersion}",
             rxJava                       : "io.reactivex:rxjava:${rxJavaVersion}",
             rxAndroid                    : "io.reactivex:rxandroid:${rxAndroidVersion}",
             javaxAnnotation              : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",

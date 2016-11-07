@@ -16,6 +16,7 @@ import com.hiquanta.scaffold.internal.di.modules.LoginModule;
 import com.hiquanta.scaffold.presenter.LoginPresenter;
 import com.hiquanta.scaffold.util.ToastUtil;
 import com.hiquanta.scaffold.view.LoginView;
+import com.shelwee.update.UpdateHelper;
 
 import javax.inject.Inject;
 
@@ -81,6 +82,11 @@ public class LoginActivity extends BaseActivity implements HasComponent<LoginCom
 //        this.loginComponent.inject(this);
         this.loginComponent=   AppContext.get().getApplicationComponent().plus(new LoginModule());
         this.loginComponent.inject(this);
+        UpdateHelper updateHelper = new UpdateHelper.Builder(this)
+                .checkUrl("http://192.168.1.208/update/update.json")
+                .isAutoInstall(false) //设置为false需在下载完手动点击安装;默认值为true，下载后自动安装。
+                .build();
+        updateHelper.check();
     }
 
     @OnClick(R.id.login)

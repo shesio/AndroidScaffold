@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.hiquanta.scaffold.internal.di.PerActivity;
+import com.hiquanta.scaffold.view.activity.AppIntroActivity;
 import com.hiquanta.scaffold.view.activity.LoginActivity;
 import com.hiquanta.scaffold.view.activity.MainActivity;
 import com.hiquanta.scaffold.view.activity.UserDetailsActivity;
@@ -38,6 +39,12 @@ public class Navigator {
     public void navigateToHome(Context context) {
         if (context != null) {
             Intent intentToLaunch = LoginActivity.getCallingIntent(context);
+            context.startActivity(intentToLaunch);
+        }
+    }
+    public void navigateToLogin(Context context) {
+        if (context != null) {
+            Intent intentToLaunch = AppIntroActivity.getCallingIntent(context);
             context.startActivity(intentToLaunch);
         }
     }
