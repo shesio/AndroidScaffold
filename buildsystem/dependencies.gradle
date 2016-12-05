@@ -17,7 +17,9 @@ ext {
     recyclerViewVersion = '23.3.0'
     v7_appcompatVersion = "23.3.0"
     rxJavaVersion = '1.2.1'
+    rxJava2Version = '2.0.1'
     rxAndroidVersion = '1.2.1'
+    rxAndroid2Version = '2.0.1'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
     gsonVersion = '2.4'
@@ -50,11 +52,13 @@ ext {
             butterKnifeCompiler          : "com.jakewharton:butterknife-compiler:${butterKnifeVersion}",
             recyclerView                 : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
             v7_appcompat                 : "com.android.support:appcompat-v7:${v7_appcompatVersion}",
-            rxJava                       : "io.reactivex:rxjava:${rxJavaVersion}",
-            rxAndroid                    : "io.reactivex:rxandroid:${rxAndroidVersion}",
+              rxJava                       : "io.reactivex:rxjava:${rxJavaVersion}",
+           // rxJava                       : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
+             rxAndroid                    : "io.reactivex:rxandroid:${rxAndroidVersion}",
+          //  rxAndroid                    : "io.reactivex.rxjava2:rxandroid:${rxAndroid2Version}",
             javaxAnnotation              : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             BaseRecyclerViewAdapterHelper: "com.github.CymChad:BaseRecyclerViewAdapterHelper:${BaseRecyclerViewAdapterHelperVersion}",
-            logger             : "com.orhanobut:logger:${loggerVersion}",
+            logger                       : "com.orhanobut:logger:${loggerVersion}",
     ]
 
     presentationTestDependencies = [
@@ -68,7 +72,8 @@ ext {
     domainDependencies = [
             javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject    : "javax.inject:javax.inject:${javaxInjectVersion}",
-            rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+             rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+         //   rxJava         : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
             modelmapper    : "org.modelmapper:modelmapper:${modelmapperVersion}",
     ]
 
@@ -81,8 +86,10 @@ ext {
             daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger             : "com.google.dagger:dagger:${daggerVersion}",
             gson               : "com.google.code.gson:gson:${gsonVersion}",
-            rxJava             : "io.reactivex:rxjava:${rxJavaVersion}",
-            rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
+               rxJava             : "io.reactivex:rxjava:${rxJavaVersion}",
+          //  rxJava             : "io.reactivex.rxjava2:rxjava:${rxJava2Version}",
+          rxAndroid          : "io.reactivex:rxandroid:${rxAndroidVersion}",
+        //    rxAndroid                    : "io.reactivex.rxjava2:rxandroid:${rxAndroid2Version}",
             javaxAnnotation    : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject        : "javax.inject:javax.inject:${javaxInjectVersion}",
             androidAnnotations : "com.android.support:support-annotations:${androidAnnotationsVersion}",

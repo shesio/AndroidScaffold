@@ -1,0 +1,15 @@
+scaffold framwork操作流程
+1.表示层
+	1,添加界面类(XXActivity,XXFragment,XXpresent相关类)
+	2,在Navigator中添加导航方法
+	3.定义依赖注入类(XXComponent,XXModule)
+	4.定义转换接口(ApplicationComponent)
+2.domain层
+	1,添加依赖的实体对象
+	2，在interactor包下添加UserCase用例
+	3,在repository包下添加相关的repository方法
+3.data层
+    1,添加依赖的实体对象
+    2.在repository包下添加domain中repository的实现类
+    3.在net包下添加RestApi方法及Wrapper方法
+    4.cache包中添加需要的缓存方法

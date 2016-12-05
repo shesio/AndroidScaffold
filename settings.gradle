@@ -1,2 +1,2 @@
-include ':app', ':data', ':domain', ':Libraries:library', ':Libraries:AndroidSlidingUpPanel', ':Libraries:AppIntro'
+include ':app', ':data', ':domain', ':Libraries:AndroidSlidingUpPanel', ':Libraries:AppIntro', ':Libraries:library'
 include ':Libraries:updatelib'

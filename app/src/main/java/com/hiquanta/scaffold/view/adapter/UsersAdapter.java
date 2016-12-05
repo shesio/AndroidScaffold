@@ -18,7 +18,7 @@ import javax.inject.Inject;
  * Created by hiquanta on 2016/10/15.
  */
 @PerActivity
-public class UsersAdapter extends BaseQuickAdapter<UserModel> {
+public class UsersAdapter extends BaseQuickAdapter<UserModel,BaseViewHolder> {
     public interface OnItemClickListener {
         void onUserItemClicked(UserModel userModel);
     }

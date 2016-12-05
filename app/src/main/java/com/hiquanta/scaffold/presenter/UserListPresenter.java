@@ -60,30 +60,48 @@ public class UserListPresenter implements Presenter {
         this.loadUserList();
     }
 
+    /**
+     *下拉刷新
+     */
+    public void pullToRefresh(){
+
+        this.loadUserList();
+    }
+
+    /**
+     * 加载更多
+     */
+    public void loadMore(){
+
+    }
     private void loadUserList() {
-        this.hideViewRetry();
-        this.showViewLoading();
+        this.isShowViewRetry(false);
+        this.isShowLoading(true);
         this.getUserList();
     }
 
     public void onUserClicked(UserModel userModel) {
         this.viewListView.viewUser(userModel);
     }
-
-    private void showViewLoading() {
-        this.viewListView.showLoading();
+    private void isShowLoading(boolean isShow){
+        if(isShow){
+            this.viewListView.showLoading();
+        }else{
+            this.viewListView.hideLoading();
+        }
     }
 
-    private void hideViewLoading() {
-        this.viewListView.hideLoading();
-    }
 
-    private void showViewRetry() {
-        this.viewListView.showRetry();
-    }
-
-    private void hideViewRetry() {
-        this.viewListView.hideRetry();
+    /**
+     * 是否显示ViewRetry
+     * @param isShow
+     */
+    private void isShowViewRetry(boolean isShow){
+        if(isShow){
+            this.viewListView.showRetry();
+        }else{
+            this.viewListView.hideRetry();
+        }
     }
 
     private void showErrorMessage(ErrorBundle errorBundle) {
@@ -106,15 +124,15 @@ public class UserListPresenter implements Presenter {
 
         @Override
         public void onCompleted() {
-            UserListPresenter.this.hideViewLoading();
+            UserListPresenter.this.isShowLoading(false);
         }
 
         @Override
         public void onError(Throwable e) {
             Logger.e(e,"onError");
-            UserListPresenter.this.hideViewLoading();
+            UserListPresenter.this.isShowLoading(false);
             UserListPresenter.this.showErrorMessage(new DefaultErrorBundle((Exception) e));
-            UserListPresenter.this.showViewRetry();
+            UserListPresenter.this.isShowViewRetry(true);
         }
 
         @Override
