@@ -38,7 +38,6 @@ import butterknife.OnClick;
 public class UserListFragment extends BaseListFragment implements UserListView {
     private static final int TOTAL_COUNTER = 18;
 
-    private static final int PAGE_SIZE = 6;
     private int mCurrentCounter = 0;
 
     private boolean isErr;
@@ -54,18 +53,10 @@ public class UserListFragment extends BaseListFragment implements UserListView {
     UsersAdapter usersAdapter;
 
 
-    @BindView(R.id.rv_users)
-    RecyclerView rv_users;
-    @BindView(R.id.rl_progress)
-    RelativeLayout rl_progress;
-    @BindView(R.id.rl_retry)
-    RelativeLayout rl_retry;
-    @BindView(R.id.bt_retry)
-    Button bt_retry;
+
     @BindView(R.id.from)
     TextView from;
-    @BindView(R.id.swipeLayout)
-    SwipeRefreshLayout swipeLayout;
+
 
     private UserListListener userListListener;
 
@@ -93,8 +84,17 @@ public class UserListFragment extends BaseListFragment implements UserListView {
         final View fragmentView = inflater.inflate(R.layout.fragment_user_list, container, false);
         ButterKnife.bind(this, fragmentView);
         setupRecyclerView();
+//        fragmentView.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//               // setSwipeRefreshLoadingState();
+//                swipeLayout.setRefreshing(true);
+//                onRefresh();
+//            }
+//        },5000);
         return fragmentView;
     }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ public class UserListFragment extends BaseListFragment implements UserListView {
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                userListPresenter.initialize();
+                loadUserList();
                 swipeLayout.setRefreshing(false);
                 usersAdapter.setEnableLoadMore(true);
             }
@@ -131,7 +131,7 @@ public class UserListFragment extends BaseListFragment implements UserListView {
                     usersAdapter.loadMoreEnd(mLoadMoreEndGone);//true is gone,false is visible
                 } else {
                     if (isErr) {
-                     //   usersAdapter.addData(DataServer.getSampleData(PAGE_SIZE));
+                     // usersAdapter.addData(DataServer.getSampleData(PAGE_SIZE));
                         mCurrentCounter = usersAdapter.getData().size();
                         usersAdapter.loadMoreComplete();
                     } else {
@@ -141,6 +141,7 @@ public class UserListFragment extends BaseListFragment implements UserListView {
 
                     }
                 }
+                usersAdapter.loadMoreEnd(true);
                 swipeLayout.setEnabled(true);
             }
         });
@@ -212,23 +213,27 @@ public class UserListFragment extends BaseListFragment implements UserListView {
 
     @Override
     public void showLoading() {
+        swipeLayout.setEnabled(false);
         this.rl_progress.setVisibility(View.VISIBLE);
 
     }
 
     @Override
     public void hideLoading() {
+        swipeLayout.setEnabled(true);
         this.rl_progress.setVisibility(View.GONE);
 
     }
 
     @Override
     public void showRetry() {
+        swipeLayout.setEnabled(false);
         this.rl_retry.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideRetry() {
+        swipeLayout.setEnabled(true);
         this.rl_retry.setVisibility(View.GONE);
     }
 
